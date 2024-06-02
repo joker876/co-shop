@@ -3,8 +3,8 @@ import { AssertNumber } from './number';
 import { AssertString } from './string';
 
 export class Assert {
-  isOk = true;
-  constructor(public res: Response, public value: any, public field: string) {}
+  public isOk = true;
+  constructor(protected res: Response, protected value: any, protected field: string) {}
 
   exists() {
     if (this.isOk && this.value == null) {

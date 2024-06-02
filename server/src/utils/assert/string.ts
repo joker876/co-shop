@@ -2,9 +2,9 @@ import { Response } from 'express';
 
 export class AssertString {
   constructor(
-    public readonly res: Response,
-    public readonly value: any,
-    public readonly field: string,
+    protected readonly res: Response,
+    protected readonly value: any,
+    protected readonly field: string,
     public isOk: boolean
   ) {}
 
