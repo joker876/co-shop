@@ -1,20 +1,15 @@
+import { newExistsQuery } from '@utils/db-helpers';
 import { RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
 
 export class UserModel {
-  static async doesUsernameExist(username: string) {
-    const res = await queryDb<RowDataPacket[]>('SELECT "username" FROM "users" WHERE "username" = ? LIMIT 1;', [
-      username,
-    ]);
-    if (res.err) {
-      throw res.err;
-    }
-    return res.result.length > 0;
+  static async doesEmailExist(email: string): Promise<boolean> {
+    return newExistsQuery('users', 'email = ?', [email]);
   }
 
-  static async findByUsername(username: string) {
-    const res = await queryDb<RowDataPacket[]>('SELECT "username" FROM "users" WHERE "username" = ? LIMIT 1;', [
-      username,
+  static async findByEmail(email: string): Promise<RowDataPacket> {
+    const res = await queryDb<RowDataPacket[]>('SELECT * FROM coshop.users WHERE email = ? LIMIT 1;', [
+      email,
     ]);
     if (res.err) {
       throw res.err;
@@ -22,24 +17,28 @@ export class UserModel {
     return res.result[0];
   }
 
-  static async findById(id: string) {
-    const res = await queryDb<RowDataPacket[]>('SELECT "username" FROM "users" WHERE "id" = ? LIMIT 1;', [id]);
+  static async findById(id: string): Promise<RowDataPacket> {
+    const res = await queryDb<RowDataPacket[]>('SELECT * FROM coshop.users WHERE id = ? LIMIT 1;', [id]);
     if (res.err) {
       throw res.err;
     }
     return res.result[0];
   }
 
-  static async createNewUser(username: string, hashedPassword: string) {
-    const res = await queryDb('INSERT INTO users ("username", "password") VALUES (?, ?);', [username, hashedPassword]);
+  static async createNewUser(email: string, username: string, hashedPassword: string) {
+    const res = await queryDb('INSERT INTO coshop.users (email, username, password) VALUES (?, ?, ?);', [
+      email,
+      username,
+      hashedPassword,
+    ]);
     if (res.err) {
       throw res.err;
     }
     return res.result;
   }
 
-  static async changePassword(username: string, hashedPassword: string) {
-    const res = await queryDb('UPDATE users SET password = ? WHERE username = ?;', [hashedPassword, username]);
+  static async changePassword(email: string, hashedPassword: string) {
+    const res = await queryDb('UPDATE coshop.users SET password = ? WHERE email = ?;', [hashedPassword, email]);
     if (res.err) {
       throw res.err;
     }

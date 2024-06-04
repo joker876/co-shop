@@ -1,10 +1,12 @@
-import express from "express";
-// import usersRouter from "./routes/users";
+import { authRouter } from '@routes/auth';
+import express from 'express';
 
 export function createApp() {
   const app = express();
 
-  // app.use("/api/users", usersRouter);
+  app.use(express.json());
+
+  app.use('/api/auth', authRouter);
 
   return app;
 }
