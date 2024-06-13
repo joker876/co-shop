@@ -3,7 +3,12 @@ import mysql, { FieldPacket, QueryError, QueryResult } from 'mysql2';
 
 export const connectToDb = () => {
   try {
-    const conn = mysql.createConnection(process.env.DB_URL!);
+    const conn = mysql.createConnection({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+    });
     return conn;
   } catch (err) {
     throw new Error(`${ERROR_STR}Unable to connect to database.`);

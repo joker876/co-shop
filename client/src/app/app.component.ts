@@ -35,4 +35,9 @@ export class AppComponent {
       console.log(res);
     });
   }
+  sendLogin() {
+    this.http.post('http://localhost:6022/api/auth/login', { email: this.email(), password: this.password() }).subscribe(res => {
+      console.log(res);
+    });
+  }
 }

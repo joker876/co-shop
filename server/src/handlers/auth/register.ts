@@ -31,6 +31,7 @@ export const registerHandler = async (req: Request, res: Response) => {
 
   const hashedPassword = hashPassword(password);
 
+  // save user or send error if it exists
   let insertData: ResultSetHeader;
   try {
     insertData = await UserModel.createNewUser(email, username, hashedPassword);
@@ -43,6 +44,7 @@ export const registerHandler = async (req: Request, res: Response) => {
   }
   const insertId = insertData.insertId;
 
+  // do passport login
   const loginError = await new Promise(resolve => {
     req.login(insertId, resolve);
   });
