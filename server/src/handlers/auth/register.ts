@@ -1,8 +1,9 @@
-import { Assert } from "@assert";
-import { UserModel } from "@models/user";
-import { hashPassword } from "@utils/encryption";
-import { EMAIL_REGEX, PASSWORD_REGEX, USERNAME_REGEX } from "@utils/regexes";
-import { Request, Response } from "express";
+import { Assert } from '@assert';
+import { UserModel } from '@models/user';
+import { hashPassword } from '@utils/encryption';
+import { EMAIL_REGEX, PASSWORD_REGEX, USERNAME_REGEX } from '@utils/regexes';
+import { Request, Response } from 'express';
+import { ResultSetHeader } from 'mysql2';
 
 export const registerHandler = async (req: Request, res: Response) => {
   // validate all required args exist
@@ -28,16 +29,26 @@ export const registerHandler = async (req: Request, res: Response) => {
     return;
   }
 
-  // check if email exists in DB
-  if (await UserModel.doesEmailExist(email)) {
-    res.status(409).json({ success: false, error: 'EMAIL_EXISTS', field: 'email' });
-    return;
-  }
-
   const hashedPassword = hashPassword(password);
 
-  await UserModel.createNewUser(email, username, hashedPassword);
+  let insertData: ResultSetHeader;
+  try {
+    insertData = await UserModel.createNewUser(email, username, hashedPassword);
+  } catch (error: unknown) {
+    if (error && typeof error === 'object' && 'code' in error && error.code === 'ER_DUP_ENTRY') {
+      res.status(409).json({ success: false, error: 'EMAIL_EXISTS', field: 'email' });
+      return;
+    }
+    throw error;
+  }
+  const insertId = insertData.insertId;
 
-  const token = 'test';
-  res.status(201).cookie('token', `Bearer ${token}`).json({ success: true, user: { email, username } });
+  const loginError = await new Promise(resolve => {
+    req.login(insertId, resolve);
+  });
+  if (loginError) {
+    throw loginError;
+  }
+
+  res.status(201).json({ success: true, user: { email, username } });
 };

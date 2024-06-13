@@ -1,5 +1,5 @@
 import { newExistsQuery } from '@utils/db-helpers';
-import { RowDataPacket } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
 
 export class UserModel {
@@ -26,11 +26,12 @@ export class UserModel {
   }
 
   static async createNewUser(email: string, username: string, hashedPassword: string) {
-    const res = await queryDb('INSERT INTO coshop.users (email, username, password) VALUES (?, ?, ?);', [
+    const res = await queryDb<ResultSetHeader>('INSERT INTO coshop.users (email, username, password) VALUES (?, ?, ?);', [
       email,
       username,
       hashedPassword,
     ]);
+    console.log(res);
     if (res.err) {
       throw res.err;
     }
@@ -38,7 +39,10 @@ export class UserModel {
   }
 
   static async changePassword(email: string, hashedPassword: string) {
-    const res = await queryDb('UPDATE coshop.users SET password = ? WHERE email = ?;', [hashedPassword, email]);
+    const res = await queryDb<ResultSetHeader>('UPDATE coshop.users SET password = ? WHERE email = ?;', [
+      hashedPassword,
+      email,
+    ]);
     if (res.err) {
       throw res.err;
     }

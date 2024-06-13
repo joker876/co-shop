@@ -1,13 +1,38 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, effect, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
+  providers: [HttpClient],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'client';
+  readonly http = inject(HttpClient);
+
+  readonly email = signal(localStorage.getItem('TEMP-email') ?? '');
+  readonly username = signal(localStorage.getItem('TEMP-username') ?? '');
+  readonly password = signal(localStorage.getItem('TEMP-password') ?? '');
+
+  constructor() {
+    effect(() => {
+      localStorage.setItem('TEMP-email', this.email());
+    });
+    effect(() => {
+      localStorage.setItem('TEMP-username', this.username());
+    });
+    effect(() => {
+      localStorage.setItem('TEMP-password', this.password());
+    });
+  }
+
+  sendRegister() {
+    this.http.post('http://localhost:6022/api/auth/register', { email: this.email(), username: this.username(), password: this.password() }).subscribe(res => {
+      console.log(res);
+    });
+  }
 }
