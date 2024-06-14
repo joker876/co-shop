@@ -2,17 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Component, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { HttpService } from './services/http/http.service';
+import { AuthRegisterRequest, AuthRegisterResponse } from './../../../shared/interfaces/auth/register';
+import { AuthLoginRequest, AuthLoginResponse } from '../../../shared/interfaces/auth/login';
+import { AuthLogoutRequest, AuthLogoutResponse } from '../../../shared/interfaces/auth/logout';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FormsModule],
-  providers: [HttpClient],
+  providers: [HttpClient, HttpService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  readonly http = inject(HttpClient);
+  readonly http = inject(HttpService);
 
   readonly email = signal(localStorage.getItem('TEMP-email') ?? '');
   readonly username = signal(localStorage.getItem('TEMP-username') ?? '');
@@ -32,32 +36,24 @@ export class AppComponent {
 
   sendRegister() {
     this.http
-      .post(
-        'http://localhost:6022/api/auth/register',
-        {
-          email: this.email(),
-          username: this.username(),
-          password: this.password(),
-        },
-        { withCredentials: true }
-      )
+      .post<AuthRegisterRequest, AuthRegisterResponse>('http://localhost:6022/api/auth/register', {
+        email: this.email(),
+        username: this.username(),
+        password: this.password(),
+      })
       .subscribe(res => {
         console.log(res);
       });
   }
   sendLogin() {
     this.http
-      .post(
-        'http://localhost:6022/api/auth/login',
-        { email: this.email(), password: this.password() },
-        { withCredentials: true }
-      )
+      .post<AuthLoginRequest, AuthLoginResponse>('http://localhost:6022/api/auth/login', { email: this.email(), password: this.password() })
       .subscribe(res => {
         console.log(res);
       });
   }
   sendLogout() {
-    this.http.post('http://localhost:6022/api/auth/logout', null, { withCredentials: true }).subscribe(res => {
+    this.http.post<AuthLogoutRequest, AuthLogoutResponse>('http://localhost:6022/api/auth/logout', null).subscribe(res => {
       console.log(res);
     });
   }
