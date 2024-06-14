@@ -25,17 +25,22 @@ export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequ
 
   // find user and verify their password
   const user = await UserModel.findByEmail(email);
+
   if (!user || !compareSync(password, user.password)) {
-    res.status(400).json({ success: false, error: 'WRONG_USERNAME_OR_PASSWORD' });
+    res.status(400).json({ success: false, error: 'WRONG_EMAIL_OR_PASSWORD' });
     return;
   }
 
   // do passport login
-  const loginError = await new Promise(resolve => {
-    req.login(user.id, resolve);
-  });
-  if (loginError) {
-    throw loginError;
+  if (!req.isAuthenticated()) {
+    await new Promise<void>(resolve => {
+      req.login(user.id, err => {
+        if (err) throw err;
+        resolve();
+      });
+    });
+  } else {
+    req.session.touch();
   }
 
   res.status(200).json({ success: true, user: { email, username: user.username } });

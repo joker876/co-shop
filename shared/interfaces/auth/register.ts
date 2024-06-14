@@ -1,18 +1,9 @@
 import { BodyParamErrorResponse, GotExpectedBodyParamErrorResponse } from '../request-param-errors';
+import { UserInfoResponse } from '../user/user-info';
+import { AuthLoginRequest } from './login';
 
-export type AuthRegisterRequest = {
-  email: string;
+export interface AuthRegisterRequest extends AuthLoginRequest {
   username: string;
-  password: string;
 };
 
-export type AuthRegisterResponse =
-  | {
-      success: true;
-      user: {
-        email: string;
-        username: string;
-      };
-    }
-  | BodyParamErrorResponse
-  | GotExpectedBodyParamErrorResponse;
+export type AuthRegisterResponse = UserInfoResponse | BodyParamErrorResponse | GotExpectedBodyParamErrorResponse;
