@@ -31,12 +31,33 @@ export class AppComponent {
   }
 
   sendRegister() {
-    this.http.post('http://localhost:6022/api/auth/register', { email: this.email(), username: this.username(), password: this.password() }).subscribe(res => {
-      console.log(res);
-    });
+    this.http
+      .post(
+        'http://localhost:6022/api/auth/register',
+        {
+          email: this.email(),
+          username: this.username(),
+          password: this.password(),
+        },
+        { withCredentials: true }
+      )
+      .subscribe(res => {
+        console.log(res);
+      });
   }
   sendLogin() {
-    this.http.post('http://localhost:6022/api/auth/login', { email: this.email(), password: this.password() }).subscribe(res => {
+    this.http
+      .post(
+        'http://localhost:6022/api/auth/login',
+        { email: this.email(), password: this.password() },
+        { withCredentials: true }
+      )
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
+  sendLogout() {
+    this.http.post('http://localhost:6022/api/auth/logout', null, { withCredentials: true }).subscribe(res => {
       console.log(res);
     });
   }

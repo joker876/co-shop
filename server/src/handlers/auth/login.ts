@@ -2,9 +2,10 @@ import { Assert } from '@assert';
 import { UserModel } from '@models/user';
 import { EMAIL_REGEX, PASSWORD_REGEX } from '@utils/regexes';
 import { compareSync } from 'bcrypt';
-import { Request, Response } from 'express';
+import { RequestHandler } from 'express';
+import { AuthLoginRequest, AuthLoginResponse } from '../../../../shared/interfaces/auth/login';
 
-export const loginHandler = async (req: Request, res: Response) => {
+export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequest> = async (req, res) => {
   // validate all required args exist
   if (!new Assert(res, req.body?.email, 'email').exists().string().minLength(6).maxLength(256).isOk) return;
   if (!new Assert(res, req.body?.password, 'password').exists().string().minLength(6).isOk) return;

@@ -2,10 +2,11 @@ import { Assert } from '@assert';
 import { UserModel } from '@models/user';
 import { hashPassword } from '@utils/encryption';
 import { EMAIL_REGEX, PASSWORD_REGEX, USERNAME_REGEX } from '@utils/regexes';
-import { Request, Response } from 'express';
+import { RequestHandler } from 'express';
 import { ResultSetHeader } from 'mysql2';
+import { AuthRegisterRequest, AuthRegisterResponse } from '../../../../shared/interfaces/auth/register';
 
-export const registerHandler = async (req: Request, res: Response) => {
+export const registerHandler: RequestHandler<null, AuthRegisterResponse, AuthRegisterRequest> = async (req, res) => {
   // validate all required args exist
   if (!new Assert(res, req.body?.email, 'email').exists().string().minLength(6).maxLength(256).isOk) return;
   if (!new Assert(res, req.body?.username, 'username').exists().string().minLength(1).maxLength(48).isOk) return;
