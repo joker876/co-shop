@@ -25,10 +25,11 @@ export class UserModel {
   }
 
   static async createNewUser(email: string, username: string, hashedPassword: string) {
-    const res = await queryDb<ResultSetHeader>(
-      'INSERT INTO users (email, username, password) VALUES (?, ?, ?);',
-      [email, username, hashedPassword]
-    );
+    const res = await queryDb<ResultSetHeader>('INSERT INTO users (email, username, password) VALUES (?, ?, ?);', [
+      email,
+      username,
+      hashedPassword,
+    ]);
     if (res.err) {
       throw res.err;
     }
@@ -40,6 +41,21 @@ export class UserModel {
       hashedPassword,
       email,
     ]);
+    if (res.err) {
+      throw res.err;
+    }
+    return res.result;
+  }
+
+  static async updateLastLogin(id: string) {
+    const res = await queryDb<ResultSetHeader>(
+      `
+        UPDATE users
+        SET last_login = NOW()
+        WHERE id = ?;
+      `,
+      [id]
+    );
     if (res.err) {
       throw res.err;
     }

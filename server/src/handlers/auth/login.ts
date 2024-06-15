@@ -43,5 +43,7 @@ export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequ
     req.session.touch();
   }
 
+  await UserModel.updateLastLogin(user.id);
+
   res.status(200).json({ success: true, user: { email, username: user.username } });
 };

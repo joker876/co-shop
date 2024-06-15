@@ -7,8 +7,8 @@
     "build": "tsc --build",
     "start": "node ./dist/index.js",
     "dev": "nodemon ./src/index.ts",
-    "migration:create": "npx sequelize-cli migration:create",
-    "migration:rollback": "env-cmd npx sequelize-cli db:migrate:undo",
+    "migration:create": "npx sequelize-cli migration:create --name",
+    "migration:rollback": "env-cmd npx sequelize-cli db:migrate:undo:all --to",
     "migrate": "env-cmd npx sequelize-cli db:migrate"
   },
   "keywords": [],
