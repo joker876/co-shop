@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/@ardium-ui/ui/themes/default/core.scss';
+@import '../node_modules/@ardium-ui/ui/themes/default/card.scss';
+@import '../node_modules/@ardium-ui/ui/themes/default/spinner.scss';
+@import '../node_modules/@ardium-ui/ui/themes/default/buttons/button.scss';
+@import '../node_modules/@ardium-ui/ui/themes/default/form-field-frame.scss';
+@import '../node_modules/@ardium-ui/ui/themes/default/inputs/simple-input.scss';
+@import '../node_modules/@ardium-ui/ui/themes/default/inputs/password-input.scss';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+:root {
+  --ard-border: rgba(0, 0, 0, 20%);
+
+  --ard-primary-50: 248, 235, 232;
+  --ard-primary-100: 255, 212, 206;
+  --ard-primary-300: 255, 114, 94;
+  --ard-primary-500: 248, 93, 73;
+  --ard-primary-700: 205, 54, 35;
+  --ard-primary-900: 133, 28, 14;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 16px;
+  display: block;
+}

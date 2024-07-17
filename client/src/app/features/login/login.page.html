@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+  <main>
+    <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+      <ard-card>
+        <ard-card-header>
+          <div class="header-container">
+            <ard-card-title>Welcome</ard-card-title>
+            <img src="logo.svg" alt="logo" />
+          </div>
+        </ard-card-header>
+        <ard-card-content>
+          <label for="email">E-mail</label>
+          <ard-simple-input formControlName="email" inputId="email" placeholder="you@example.com" />
+          <label for="email">Password</label>
+          <ard-password-input formControlName="password" inputId="password" placeholder="Enter 8 characters or more" />
+        </ard-card-content>
+        <ard-card-action-buttons>
+          <ard-button appearance="raised-strong"> Login </ard-button>
+          <p>Don't have an account? <a href="/register">Sign Up</a></p>
+        </ard-card-action-buttons>
+      </ard-card>
+    </form>
+  </main>
+  <aside>
+    <img src="shopping-cart.svg" alt="Man using his phone to put things into a shopping cart" />
+  </aside>
+</div>
