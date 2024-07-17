@@ -1,0 +1,34 @@
+<div class="register-wrapper">
+  <aside>
+    <img src="making-a-list.svg" alt="Man using his phone to put things into a shopping cart" />
+  </aside>
+  <main>
+    <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+      <ard-card>
+        <ard-card-header>
+          <div class="header-container">
+            <ard-card-title>Start your journey!</ard-card-title>
+            <img src="logo.svg" alt="logo" />
+          </div>
+        </ard-card-header>
+        <ard-card-content>
+          <label for="email">E-mail</label>
+          <ard-simple-input formControlName="email" inputId="email" placeholder="you@example.com" />
+          <label for="username">Username</label>
+          <ard-simple-input formControlName="username" inputId="username" placeholder="Your name" />
+          <label for="email">Password</label>
+          <ard-password-input formControlName="password" inputId="password" placeholder="Enter 8 characters or more" />
+        </ard-card-content>
+        <ard-card-action-buttons>
+          <div class="button-container">
+            <ard-button appearance="raised-strong" [disabled]="isRegisterPending()"> Sign Up </ard-button>
+            @if (isRegisterPending()) {
+              <ard-spinner />
+            }
+          </div>
+          <p>Already have an account? <a href="/login">Log In</a></p>
+        </ard-card-action-buttons>
+      </ard-card>
+    </form>
+  </main>
+</div>

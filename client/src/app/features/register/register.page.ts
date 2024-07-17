@@ -6,27 +6,29 @@ import {
   ArdiumCardModule,
   ArdiumPasswordInputModule,
   ArdiumSimpleInputModule,
+  ArdiumSpinnerModule,
 } from '@ardium-ui/ui';
 import { HttpService } from '@services/http';
 import { customValidators } from '@utils/form-utils';
 import { catchError, retry, Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [
     ArdiumCardModule,
     ArdiumSimpleInputModule,
     ArdiumPasswordInputModule,
     ArdiumButtonModule,
+    ArdiumSpinnerModule,
     CommonModule,
     ReactiveFormsModule,
   ],
-  templateUrl: './login.page.html',
-  styleUrl: './login.page.scss',
+  templateUrl: './register.page.html',
+  styleUrl: './register.page.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class LoginPage implements OnDestroy {
+export class RegisterPage implements OnDestroy {
   private readonly http = inject(HttpService);
   private readonly destroy$ = new Subject<void>();
 
@@ -35,11 +37,12 @@ export class LoginPage implements OnDestroy {
     this.destroy$.complete();
   }
 
-  readonly isLoginPending = signal<boolean>(false);
-  readonly loginErrorResponse = signal<string | null>(null);
+  readonly isRegisterPending = signal<boolean>(false);
+  readonly registerErrorResponse = signal<string | null>(null);
 
   readonly form = new FormGroup({
     email: new FormControl<string>('', [Validators.required, customValidators.email]),
+    username: new FormControl<string>('', [Validators.required, Validators.maxLength(48), Validators.minLength(1)]),
     password: new FormControl<string>('', [Validators.required]),
   });
 
@@ -49,18 +52,21 @@ export class LoginPage implements OnDestroy {
       return;
     }
 
+    this.isRegisterPending.set(true);
     const sub = this.http
-      .post('auth/login', this.form.value, {})
+      .post('auth/register', this.form.value, {})
       .pipe(
         takeUntil(this.destroy$),
         retry(0),
         catchError((err, caught) => {
-          console.log(err);
+          this.isRegisterPending.set(false);
+          console.log(err.error);
           sub.unsubscribe();
           return caught;
         })
       )
       .subscribe(res => {
+        this.isRegisterPending.set(false);
         console.log(res);
       });
   }

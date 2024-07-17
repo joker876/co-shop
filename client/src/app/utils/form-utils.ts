@@ -1,4 +1,4 @@
-import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export type FormGroupErrors<T extends { [K in keyof T]: AbstractControl<any> }> = {
   [K in keyof T]: ValidationErrors | null;
@@ -16,3 +16,18 @@ export function getFormErrors<T extends { [K in keyof T]: AbstractControl<any> }
 
   return errors as FormGroupErrors<T>;
 }
+
+export const customValidators: {
+  readonly email: ValidatorFn;
+} = {
+  email: (control: AbstractControl): ValidationErrors => {
+    if (
+      !/^[A-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\.[A-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[A-Z0-9-]+(?:\.[A-Z0-9-]{2,})*$/i.test(
+        control.value
+      )
+    ) {
+      return { email: true };
+    }
+    return {};
+  },
+};

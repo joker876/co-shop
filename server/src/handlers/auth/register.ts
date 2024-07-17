@@ -10,7 +10,7 @@ export const registerHandler: RequestHandler<null, AuthRegisterResponse, AuthReg
   // validate all required args exist
   if (!new Assert(res, req.body?.email, 'email').exists().string().minLength(6).maxLength(256).isOk) return;
   if (!new Assert(res, req.body?.username, 'username').exists().string().minLength(1).maxLength(48).isOk) return;
-  if (!new Assert(res, req.body?.password, 'password').exists().string().minLength(6).isOk) return;
+  if (!new Assert(res, req.body?.password, 'password').exists().string().minLength(8).isOk) return;
 
   const { email, username, password } = req.body;
 

@@ -8,7 +8,7 @@ import { AuthLoginRequest, AuthLoginResponse } from '../../../../shared/interfac
 export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequest> = async (req, res) => {
   // validate all required args exist
   if (!new Assert(res, req.body?.email, 'email').exists().string().minLength(6).maxLength(256).isOk) return;
-  if (!new Assert(res, req.body?.password, 'password').exists().string().minLength(6).isOk) return;
+  if (!new Assert(res, req.body?.password, 'password').exists().string().minLength(8).isOk) return;
 
   const { email, password } = req.body;
 
