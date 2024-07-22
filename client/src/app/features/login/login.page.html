@@ -10,9 +10,19 @@
         </ard-card-header>
         <ard-card-content>
           <label for="email">E-mail</label>
-          <ard-simple-input formControlName="email" inputId="email" placeholder="you@example.com" />
+          <ard-simple-input
+            formControlName="email"
+            inputId="email"
+            placeholder="you@example.com"
+            [inputAttrs]="{ autocomplete: 'email' }"
+          />
           <label for="email">Password</label>
-          <ard-password-input formControlName="password" inputId="password" placeholder="Enter 8 characters or more" />
+          <ard-password-input
+            formControlName="password"
+            inputId="password"
+            placeholder="Enter 8 characters or more"
+            [inputAttrs]="{ autocomplete: 'password' }"
+          />
         </ard-card-content>
         <ard-card-action-buttons>
           <ard-button appearance="raised-strong"> Login </ard-button>

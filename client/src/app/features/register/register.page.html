@@ -13,17 +13,32 @@
         </ard-card-header>
         <ard-card-content>
           <label for="email">E-mail</label>
-          <ard-simple-input formControlName="email" inputId="email" placeholder="you@example.com" />
+          <ard-simple-input
+            formControlName="email"
+            inputId="email"
+            placeholder="you@example.com"
+            [inputAttrs]="{ autocomplete: 'email' }"
+          />
           <label for="username">Username</label>
-          <ard-simple-input formControlName="username" inputId="username" placeholder="Your name" />
+          <ard-simple-input
+            formControlName="username"
+            inputId="username"
+            placeholder="Your name"
+            [inputAttrs]="{ autocomplete: 'name' }"
+          />
           <label for="email">Password</label>
-          <ard-password-input formControlName="password" inputId="password" placeholder="Enter 8 characters or more" />
+          <ard-password-input
+            formControlName="password"
+            inputId="password"
+            placeholder="Enter 8 characters or more"
+            [inputAttrs]="{ autocomplete: 'new-password' }"
+          />
         </ard-card-content>
         <ard-card-action-buttons>
           <div class="button-container">
             <ard-button appearance="raised-strong" [disabled]="isRegisterPending()"> Sign Up </ard-button>
             @if (isRegisterPending()) {
-              <ard-spinner />
+            <ard-spinner />
             }
           </div>
           <p>Already have an account? <a href="/login">Log In</a></p>
