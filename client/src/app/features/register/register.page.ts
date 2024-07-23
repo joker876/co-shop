@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnDestroy, signal, ViewEncapsulation } from '@angular/core';
+import { Component, inject, signal, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   ArdiumButtonModule,
@@ -8,9 +8,9 @@ import {
   ArdiumSimpleInputModule,
   ArdiumSpinnerModule,
 } from '@ardium-ui/ui';
-import { HttpService } from '@services/http';
+import { AuthService } from '@services/auth';
 import { customValidators } from '@utils/form-utils';
-import { catchError, retry, Subject, takeUntil } from 'rxjs';
+import { AuthRegisterRequest } from '../../../../../shared/interfaces/auth/register';
 
 @Component({
   selector: 'app-register',
@@ -28,14 +28,8 @@ import { catchError, retry, Subject, takeUntil } from 'rxjs';
   styleUrl: './register.page.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class RegisterPage implements OnDestroy {
-  private readonly http = inject(HttpService);
-  private readonly destroy$ = new Subject<void>();
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+export class RegisterPage {
+  private readonly authService = inject(AuthService);
 
   readonly isRegisterPending = signal<boolean>(false);
   readonly registerErrorResponse = signal<string | null>(null);
@@ -51,23 +45,6 @@ export class RegisterPage implements OnDestroy {
       this.form.markAllAsTouched();
       return;
     }
-
-    this.isRegisterPending.set(true);
-    const sub = this.http
-      .post('auth/register', this.form.value, {})
-      .pipe(
-        takeUntil(this.destroy$),
-        retry(0),
-        catchError((err, caught) => {
-          this.isRegisterPending.set(false);
-          console.log(err.error);
-          sub.unsubscribe();
-          return caught;
-        })
-      )
-      .subscribe(res => {
-        this.isRegisterPending.set(false);
-        console.log(res);
-      });
+    this.authService.executeRegister(this.form.value as AuthRegisterRequest);
   }
 }
