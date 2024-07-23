@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+  <ard-card>
+    <ard-card-header>
+      <div class="header-container">
+        <ard-card-title>What should we call you?</ard-card-title>
+        <ard-card-subtitle>We will use this name to introduce you to your friends.</ard-card-subtitle>
+      </div>
+    </ard-card-header>
+    <ard-card-content>
+      <ard-simple-input
+        formControlName="username"
+        inputId="username"
+        placeholder="Your name"
+        [inputAttrs]="{ autocomplete: 'name', 'aria-label': 'Your name' }"
+      />
+    </ard-card-content>
+    <ard-card-action-buttons>
+      <div class="button-container">
+        <ard-button appearance="raised-strong" [disabled]="authService.isRegisterPending()"> Accept </ard-button>
+        @if (authService.isRegisterPending()) {
+          <ard-spinner />
+        }
+      </div>
+      <p><a (click)="onMoreInfoClick()">Who will see my name?</a></p>
+    </ard-card-action-buttons>
+  </ard-card>
+</form>

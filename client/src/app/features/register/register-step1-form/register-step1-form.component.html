@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+  <ard-card>
+    <ard-card-header>
+      <div class="header-container">
+        <ard-card-title>Start your journey!</ard-card-title>
+        <img src="logo.svg" alt="logo" />
+      </div>
+    </ard-card-header>
+    <ard-card-content>
+      <label for="email">E-mail</label>
+      <ard-simple-input
+        formControlName="email"
+        inputId="email"
+        placeholder="you@example.com"
+        [inputAttrs]="{ autocomplete: 'email' }"
+      />
+      <label for="email">Password</label>
+      <ard-password-input
+        formControlName="password"
+        inputId="password"
+        placeholder="Enter 8 characters or more"
+        [inputAttrs]="{ autocomplete: 'new-password' }"
+      />
+    </ard-card-content>
+    <ard-card-action-buttons>
+      <div class="button-container">
+        <ard-button appearance="raised-strong" [disabled]="authService.isRegisterPending()"> Sign Up </ard-button>
+        @if (authService.isRegisterPending()) {
+          <ard-spinner />
+        }
+      </div>
+      <p>Already have an account? <a href="/login">Log In</a></p>
+    </ard-card-action-buttons>
+  </ard-card>
+</form>

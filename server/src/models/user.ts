@@ -24,11 +24,33 @@ export class UserModel {
     return res.result[0] as User | undefined;
   }
 
-  static async createNewUser(email: string, username: string, hashedPassword: string) {
-    const res = await queryDb<ResultSetHeader>('INSERT INTO users (email, username, password) VALUES (?, ?, ?);', [
+  static async createNewUser(email: string, hashedPassword: string) {
+    const res = await queryDb<ResultSetHeader>('INSERT INTO users (email, password) VALUES (?, ?);', [
       email,
-      username,
       hashedPassword,
+    ]);
+    if (res.err) {
+      throw res.err;
+    }
+    return res.result;
+  }
+
+  static async checkUserHasNoUsername(userId: string, username: string) {
+    console.log(userId, username);
+    const res = await queryDb('UPDATE users SET username = ? WHERE id = ? AND NOT username;', [
+      username,
+      userId,
+    ]);
+    if (res.err) {
+      throw res.err;
+    }
+    console.log(res);
+    return res.result;
+  }
+  static async setBrandNewUserUsername(userId: string, username: string) {
+    const res = await queryDb<ResultSetHeader>('UPDATE users SET username = ? WHERE id = ? AND username IS NULL;', [
+      username,
+      userId,
     ]);
     if (res.err) {
       throw res.err;

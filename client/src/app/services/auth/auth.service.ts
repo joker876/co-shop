@@ -1,7 +1,14 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpService } from '@services/http';
 import { catchError, retry, Subject, takeUntil } from 'rxjs';
-import { AuthRegisterRequest, AuthRegisterResponse } from './../../../../../shared/interfaces/auth/register';
+import { AuthLoginRequest } from '../../../../../shared/interfaces/auth/login';
+import { UserInfo } from '../../../../../shared/interfaces/user/user-info';
+import {
+  AuthRegisterStep1Request,
+  AuthRegisterStep1Response,
+  AuthRegisterStep2Request,
+  AuthRegisterStep2Response,
+} from './../../../../../shared/interfaces/auth/register';
 
 @Injectable({
   providedIn: 'root',
@@ -19,30 +26,84 @@ export class AuthService {
   private readonly _isAuthenticated = signal<boolean>(false);
   public readonly isAuthenticated = this._isAuthenticated.asReadonly();
 
+  private readonly _userInfo = signal<UserInfo | null>(null);
+  public readonly userInfo = this._userInfo.asReadonly();
+
   private readonly _isRegisterPending = signal<boolean>(false);
   public readonly isRegisterPending = this._isRegisterPending.asReadonly();
-  private readonly _isRLoginPending = signal<boolean>(false);
-  public readonly isRLoginPending = this._isRLoginPending.asReadonly();
+  private readonly _isLoginPending = signal<boolean>(false);
+  public readonly isLoginPending = this._isLoginPending.asReadonly();
   private readonly _isLogoutPending = signal<boolean>(false);
   public readonly isLogoutPending = this._isLogoutPending.asReadonly();
 
-  executeRegister(data: AuthRegisterRequest): void {
-    this._isRegisterPending.set(true);
-    const sub = this.http
-      .post<AuthRegisterRequest, AuthRegisterResponse>('auth/register', data, {})
-      .pipe(
-        takeUntil(this.destroy$),
-        retry(0),
-        catchError((err, caught) => {
+  private readonly _registerErrorResponse = signal<string | null>(null);
+  public readonly registerErrorResponse = this._registerErrorResponse.asReadonly();
+  private readonly _loginErrorResponse = signal<string | null>(null);
+  public readonly loginErrorResponse = this._loginErrorResponse.asReadonly();
+  private readonly _logoutErrorResponse = signal<string | null>(null);
+  public readonly logoutErrorResponse = this._logoutErrorResponse.asReadonly();
+
+  executeRegisterStep1(data: AuthRegisterStep1Request): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      if (this.isRegisterPending()) return resolve(true);
+
+      this._isRegisterPending.set(true);
+      const sub = this.http
+        .post<AuthRegisterStep1Request, AuthRegisterStep1Response>('auth/register/step1', data, {})
+        .pipe(
+          takeUntil(this.destroy$),
+          retry(0),
+          catchError((err, caught) => {
+            this._isRegisterPending.set(false);
+            this._registerErrorResponse.set(err.error);
+            console.log(err.error, caught);
+            sub.unsubscribe();
+            resolve(false);
+            return caught;
+          })
+        )
+        .subscribe(res => {
+          console.log(res);
           this._isRegisterPending.set(false);
-          console.log(err.error);
-          sub.unsubscribe();
-          return caught;
-        })
-      )
-      .subscribe(res => {
-        this._isRegisterPending.set(false);
-        console.log(res);
-      });
+
+          if (res.success) {
+            this._isAuthenticated.set(true);
+            this._userInfo.set(res.user as UserInfo);
+            resolve(true);
+          }
+        });
+    });
   }
+  executeRegisterStep2(data: AuthRegisterStep2Request): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      if (this.isRegisterPending()) return resolve(true);
+
+      this._isRegisterPending.set(true);
+      const sub = this.http
+        .post<AuthRegisterStep2Request, AuthRegisterStep2Response>('auth/register/step2', data, {})
+        .pipe(
+          takeUntil(this.destroy$),
+          retry(0),
+          catchError((err, caught) => {
+            this._isRegisterPending.set(false);
+            this._registerErrorResponse.set(err.error);
+            console.log(err.error, caught);
+            sub.unsubscribe();
+            resolve(false);
+            return caught;
+          })
+        )
+        .subscribe(res => {
+          console.log(res);
+          this._isRegisterPending.set(false);
+
+          if (res.success) {
+            this._isAuthenticated.set(true);
+            this._userInfo.update(curr => ({ ...curr, ...(res.user as UserInfo) }));
+            resolve(true);
+          }
+        });
+    });
+  }
+  executeLogin(data: AuthLoginRequest): void {}
 }

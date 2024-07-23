@@ -4,7 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { AuthLoginRequest, AuthLoginResponse } from '../../../shared/interfaces/auth/login';
 import { AuthLogoutRequest, AuthLogoutResponse } from '../../../shared/interfaces/auth/logout';
-import { AuthRegisterRequest, AuthRegisterResponse } from './../../../shared/interfaces/auth/register';
+import {
+  AuthRegisterStep1Request,
+  AuthRegisterStep1Response,
+  AuthRegisterStep2Request,
+  AuthRegisterStep2Response,
+} from './../../../shared/interfaces/auth/register';
 import { HttpService } from './services/http/http.service';
 
 @Component({
@@ -34,12 +39,20 @@ export class AppComponent {
     });
   }
 
-  sendRegister() {
+  sendRegister1() {
     this.http
-      .post<AuthRegisterRequest, AuthRegisterResponse>('http://localhost:6022/api/auth/register', {
+      .post<AuthRegisterStep1Request, AuthRegisterStep1Response>('auth/register/step1', {
         email: this.email(),
-        username: this.username(),
         password: this.password(),
+      })
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
+  sendRegister2() {
+    this.http
+      .post<AuthRegisterStep2Request, AuthRegisterStep2Response>('auth/register/step2', {
+        username: this.username(),
       })
       .subscribe(res => {
         console.log(res);
@@ -50,14 +63,14 @@ export class AppComponent {
       .post<
         AuthLoginRequest,
         AuthLoginResponse
-      >('http://localhost:6022/api/auth/login', { email: this.email(), password: this.password() })
+      >('auth/login', { email: this.email(), password: this.password() })
       .subscribe(res => {
         console.log(res);
       });
   }
   sendLogout() {
     this.http
-      .post<AuthLogoutRequest, AuthLogoutResponse>('http://localhost:6022/api/auth/logout', null)
+      .post<AuthLogoutRequest, AuthLogoutResponse>('auth/logout', null)
       .subscribe(res => {
         console.log(res);
       });

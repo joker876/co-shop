@@ -1,9 +1,11 @@
-import { BodyParamErrorResponse, GotExpectedBodyParamErrorResponse } from '../request-param-errors';
-import { UserInfoResponse } from '../user/user-info';
+import { BodyParamErrorResponse, ErrorResponse, GotExpectedBodyParamErrorResponse } from '../request-param-errors';
+import { PartialUserInfoResponse } from '../user/user-info';
 import { AuthLoginRequest } from './login';
 
-export interface AuthRegisterRequest extends AuthLoginRequest {
+export interface AuthRegisterStep1Request extends AuthLoginRequest {};
+export interface AuthRegisterStep2Request {
   username: string;
 };
 
-export type AuthRegisterResponse = UserInfoResponse | BodyParamErrorResponse | GotExpectedBodyParamErrorResponse;
+export type AuthRegisterStep1Response = PartialUserInfoResponse | BodyParamErrorResponse | GotExpectedBodyParamErrorResponse;
+export type AuthRegisterStep2Response = PartialUserInfoResponse | BodyParamErrorResponse | GotExpectedBodyParamErrorResponse | ErrorResponse;
