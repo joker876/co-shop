@@ -10,8 +10,8 @@ import {
   ArdiumSpinnerModule,
 } from '@ardium-ui/ui';
 import { AuthService } from '@services/auth';
+import { AuthRegisterStep1Request } from '@shared/interfaces/auth/register';
 import { customValidators, disableAllControls, restoreDisabledStates } from '@utils/form-utils';
-import { AuthRegisterStep1Request } from '../../../../../../shared/interfaces/auth/register';
 
 @Component({
   selector: 'app-register-step1-form',
