@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnDestroy, signal, ViewEncapsulation } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   ArdiumButtonModule,
   ArdiumCardModule,
   ArdiumPasswordInputModule,
   ArdiumSimpleInputModule,
 } from '@ardium-ui/ui';
-import { HttpService } from '@services/http';
-import { customValidators } from '@utils/form-utils';
-import { catchError, retry, Subject, takeUntil } from 'rxjs';
+import { AuthService } from '@services/auth';
+import { AuthLoginRequest } from '@shared/interfaces/auth/login';
+import { customValidators, disableAllControls, restoreDisabledStates } from '@utils/form-utils';
 
 @Component({
   selector: 'app-login',
@@ -26,42 +27,32 @@ import { catchError, retry, Subject, takeUntil } from 'rxjs';
   styleUrl: './login.page.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class LoginPage implements OnDestroy {
-  private readonly http = inject(HttpService);
-  private readonly destroy$ = new Subject<void>();
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
-  readonly isLoginPending = signal<boolean>(false);
-  readonly loginErrorResponse = signal<string | null>(null);
+export class LoginPage {
+  readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
 
   readonly form = new FormGroup({
     email: new FormControl<string>('', [Validators.required, customValidators.email]),
     password: new FormControl<string>('', [Validators.required]),
   });
 
-  onFormSubmit() {
+  async onFormSubmit() {
     if (!this.form.valid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    const sub = this.http
-      .post('auth/login', this.form.value, {})
-      .pipe(
-        takeUntil(this.destroy$),
-        retry(0),
-        catchError((err, caught) => {
-          console.log(err);
-          sub.unsubscribe();
-          return caught;
-        })
-      )
-      .subscribe(res => {
-        console.log(res);
-      });
+    const disabledStates = disableAllControls(this.form);
+    const { isOk, hasNameSet } = await this.authService.executeLogin(this.form.value as AuthLoginRequest);
+    if (!isOk) {
+      restoreDisabledStates(this.form, disabledStates);
+      return;
+    }
+    if (!hasNameSet) {
+      this.router.navigate(['register', 'set-name']); 
+      return;
+    }
+    this.router.navigate(['']);
   }
 }

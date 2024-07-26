@@ -4,7 +4,7 @@
       <ard-card>
         <ard-card-header>
           <div class="header-container">
-            <ard-card-title>Welcome</ard-card-title>
+            <ard-card-title>Welcome back!</ard-card-title>
             <img src="logo.svg" alt="logo" />
           </div>
         </ard-card-header>
@@ -16,16 +16,16 @@
             placeholder="you@example.com"
             [inputAttrs]="{ autocomplete: 'email' }"
           />
-          <label for="email">Password</label>
+          <label for="password">Password</label>
           <ard-password-input
             formControlName="password"
             inputId="password"
             placeholder="Enter 8 characters or more"
-            [inputAttrs]="{ autocomplete: 'password' }"
+            [inputAttrs]="{ autocomplete: 'current-password' }"
           />
         </ard-card-content>
         <ard-card-action-buttons>
-          <ard-button appearance="raised-strong"> Login </ard-button>
+          <ard-button appearance="raised-strong"> Log in </ard-button>
           <p>Don't have an account? <a href="/register">Sign Up</a></p>
         </ard-card-action-buttons>
       </ard-card>

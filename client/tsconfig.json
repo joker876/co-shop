@@ -32,6 +32,9 @@
       ],
       "@env": [
         "src/app/environments/environment"
+      ],
+      "@shared/*": [
+        "src/../../shared/*"
       ]
     }
   },
