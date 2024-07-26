@@ -1,15 +1,10 @@
 import { Assert } from '@assert';
 import { UserModel } from '@models/user';
+import { AuthRegisterStep1Request, AuthRegisterStep1Response, AuthRegisterStep2Request, AuthRegisterStep2Response } from '@shared/interfaces/auth/register';
 import { hashPassword } from '@utils/encryption';
 import { EMAIL_REGEX, PASSWORD_REGEX, USERNAME_REGEX } from '@utils/regexes';
 import { RequestHandler } from 'express';
 import { ResultSetHeader } from 'mysql2';
-import {
-  AuthRegisterStep1Request,
-  AuthRegisterStep1Response,
-  AuthRegisterStep2Request,
-  AuthRegisterStep2Response,
-} from '../../../../shared/interfaces/auth/register';
 
 export const registerStep1Handler: RequestHandler<null, AuthRegisterStep1Response, AuthRegisterStep1Request> = async (
   req,

@@ -1,15 +1,10 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpService } from '@services/http';
+import { AuthLoginRequest, AuthLoginResponse } from '@shared/interfaces/auth/login';
+import { AuthRegisterStep1Request, AuthRegisterStep1Response, AuthRegisterStep2Request, AuthRegisterStep2Response } from '@shared/interfaces/auth/register';
+import { UserInfo } from '@shared/interfaces/user/user-info';
 import { catchError, retry, Subject, takeUntil } from 'rxjs';
 import { isDefined } from 'simple-bool';
-import { AuthLoginRequest, AuthLoginResponse } from '../../../../../shared/interfaces/auth/login';
-import { UserInfo } from '../../../../../shared/interfaces/user/user-info';
-import {
-  AuthRegisterStep1Request,
-  AuthRegisterStep1Response,
-  AuthRegisterStep2Request,
-  AuthRegisterStep2Response,
-} from './../../../../../shared/interfaces/auth/register';
 
 @Injectable({
   providedIn: 'root',

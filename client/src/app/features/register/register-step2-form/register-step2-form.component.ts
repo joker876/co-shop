@@ -3,8 +3,8 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ArdiumButtonModule, ArdiumCardModule, ArdiumSimpleInputModule, ArdiumSpinnerModule } from '@ardium-ui/ui';
 import { AuthService } from '@services/auth';
+import { AuthRegisterStep2Request } from '@shared/interfaces/auth/register';
 import { disableAllControls, restoreDisabledStates } from '@utils/form-utils';
-import { AuthRegisterStep2Request } from '../../../../../../shared/interfaces/auth/register';
 
 @Component({
   selector: 'app-register-step2-form',

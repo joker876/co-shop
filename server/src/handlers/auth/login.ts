@@ -1,9 +1,9 @@
 import { Assert } from '@assert';
 import { UserModel } from '@models/user';
+import { AuthLoginRequest, AuthLoginResponse } from '@shared/interfaces/auth/login';
 import { EMAIL_REGEX, PASSWORD_REGEX } from '@utils/regexes';
 import { compareSync } from 'bcrypt';
 import { RequestHandler } from 'express';
-import { AuthLoginRequest, AuthLoginResponse } from '../../../../shared/interfaces/auth/login';
 
 export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequest> = async (req, res) => {
   // validate all required args exist

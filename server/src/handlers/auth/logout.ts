@@ -1,5 +1,5 @@
+import { AuthLogoutRequest, AuthLogoutResponse } from '@shared/interfaces/auth/logout';
 import { RequestHandler } from 'express';
-import { AuthLogoutRequest, AuthLogoutResponse } from '../../../../shared/interfaces/auth/logout';
 
 export const logoutHandler: RequestHandler<any, AuthLogoutResponse, AuthLogoutRequest> = async (req, res) => {
   // do passport logout
