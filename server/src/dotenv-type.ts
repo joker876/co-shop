@@ -11,8 +11,9 @@ declare global {
       readonly DB_DATABASE: string;
       
       readonly SESSION_SECRET: string;
+      readonly SESSION_LENGTH: string;
     }
   }
 }
 
-export {  };
+export { };

@@ -1,12 +1,12 @@
 import { authRouter } from '@routes/auth';
 import ansis from 'ansis';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import 'dotenv/config';
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import MySQLStoreCreator from 'express-mysql-session';
 import session, * as expressSession from 'express-session';
 import passport from 'passport';
-import cors from 'cors';
 import { connectToDb } from './db';
 import './dotenv-type';
 import { OK_STR } from './utils/console-colors';
@@ -39,7 +39,7 @@ app.use(
     saveUninitialized: false,
 
     cookie: {
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
+      maxAge: Number(process.env.SESSION_LENGTH) || 24 * 60 * 60 * 1000, // 1 day
     },
   })
 );
