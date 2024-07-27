@@ -1,0 +1,12 @@
+<header>
+  <div>
+    @if (headerService.headerButton()) {
+      <ard-icon-button color="none">
+        <ard-icon [icon]="headerService.headerButton()" />
+      </ard-icon-button>
+    }
+  </div>
+  <div class="header-title">
+    {{ headerService.header() }}
+  </div>
+</header>

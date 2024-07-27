@@ -4,6 +4,7 @@
 @import '../node_modules/@ardium-ui/ui/themes/default/card.scss';
 @import '../node_modules/@ardium-ui/ui/themes/default/spinner.scss';
 @import '../node_modules/@ardium-ui/ui/themes/default/buttons/button.scss';
+@import '../node_modules/@ardium-ui/ui/themes/default/buttons/icon-button.scss';
 @import '../node_modules/@ardium-ui/ui/themes/default/form-field-frame.scss';
 @import '../node_modules/@ardium-ui/ui/themes/default/inputs/simple-input.scss';
 @import '../node_modules/@ardium-ui/ui/themes/default/inputs/password-input.scss';
@@ -15,6 +16,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
+  letter-spacing: 0.01em;
 }
 
 :root {
@@ -24,7 +26,7 @@
   --ard-primary-100: 255, 212, 206;
   --ard-primary-300: 255, 114, 94;
   --ard-primary-500: 248, 93, 73;
-  --ard-primary-700: 205, 54, 35;
+  --ard-primary-700: 219, 62, 41;
   --ard-primary-900: 133, 28, 14;
 }
 
