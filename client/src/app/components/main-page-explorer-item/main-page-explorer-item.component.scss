@@ -1,39 +1,51 @@
 @import '../../../variables';
 
 button {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  align-items: center;
   width: 100%;
-  gap: 1rem;
-  background-color: $bg-d;
   padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background-color: $bg-d;
   border-radius: 0.75rem;
-  border: 1px solid $bg-d;
-  outline: none;
+  border: none;
+  outline: $bg-d 1px solid;
+  outline-offset: -1px;
   text-align: start;
-  height: 2.75rem;
+  min-height: 2.75rem;
+  color: $text4;
+
+  .top-container {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
 
   &:hover {
     background-color: $bg-f;
   }
   &:focus-visible {
-    border-color: $border-dark;
+    outline-color: $main500;
+    background-color: $main100;
   }
-}
-.icon-container {
-  color: $main500;
-  height: max-content;
+  .icon-container {
+    color: $main500;
+    height: max-content;
 
-  > ard-icon {
-    font-size: 1.5rem;
+    > ard-icon {
+      font-size: 1.5rem;
 
-    &.is-folder {
-      color: $on-surface;
+      &.is-folder {
+        color: $on-surface;
+      }
     }
   }
-}
-.text-container {
-  font-size: 0.8125rem;
-  font-weight: 500;
+  .text-container {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $text;
+  }
 }

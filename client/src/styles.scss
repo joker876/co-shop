@@ -30,6 +30,7 @@
   --ard-primary-900: 133, 28, 14;
 
   --on-surface: #444746;
+  --text-4: rgba(0, 0, 0, 65%);
 }
 
 label {
@@ -39,6 +40,7 @@ label {
   margin-top: 16px;
   display: block;
 }
-a, button {
+a,
+button {
   cursor: pointer;
 }

@@ -1,8 +1,11 @@
 <button>
-  <div class="icon-container">
-    <ard-icon [icon]="type()" [class.is-folder]="type() === 'folder'" filled />
+  <div class="top-container">
+    <div class="icon-container">
+      <ard-icon [icon]="type()" [class.is-folder]="type() === 'folder'" filled />
+    </div>
+    <div class="text-container">
+      {{ name() }}
+    </div>
   </div>
-  <div class="text-container">
-    {{ name() }}
-  </div>
+  <ng-content />
 </button>
