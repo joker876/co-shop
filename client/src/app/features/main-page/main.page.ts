@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ListExplorerItemType } from '@typings';
-import { MainPageExplorerItemComponent } from 'src/app/components/main-page-explorer-item';
+import { ExplorerItemComponent } from 'src/app/components/explorer-item';
 import { QuickCreateButtonComponent } from 'src/app/components/quick-create-button';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [MainPageExplorerItemComponent, QuickCreateButtonComponent],
+  imports: [ExplorerItemComponent, QuickCreateButtonComponent],
   templateUrl: './main.page.html',
   styleUrl: './main.page.scss'
 })

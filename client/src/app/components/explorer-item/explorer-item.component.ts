@@ -4,13 +4,13 @@ import { ArdiumIconModule } from '@ardium-ui/ui';
 import { ListExplorerItemType } from '@typings';
 
 @Component({
-  selector: 'app-main-page-explorer-item',
+  selector: 'app-explorer-item',
   standalone: true,
   imports: [CommonModule, ArdiumIconModule, DecimalPipe],
-  templateUrl: './main-page-explorer-item.component.html',
-  styleUrl: './main-page-explorer-item.component.scss'
+  templateUrl: './explorer-item.component.html',
+  styleUrl: './explorer-item.component.scss'
 })
-export class MainPageExplorerItemComponent {
+export class ExplorerItemComponent {
   readonly name = input.required<string>();
   
   readonly type = input.required<ListExplorerItemType>();
