@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MainPageExplorerItemComponent } from 'src/app/components/main-page-explorer-item/main-page-explorer-item.component';
-import { ListExplorerItemType } from 'src/app/components/main-page-explorer-item/types';
+import { ListExplorerItemType, MainPageExplorerItemComponent } from 'src/app/components/main-page-explorer-item';
 
 @Component({
   selector: 'app-main',

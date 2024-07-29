@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderService } from '@services/header/header.service';
-import { HeaderComponent } from 'src/app/components/header/header.component';
+import { HeaderService } from '@services/header';
+import { HeaderComponent } from 'src/app/components/header';
 
 @Component({
   selector: 'app-app-container',
