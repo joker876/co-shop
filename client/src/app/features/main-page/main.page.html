@@ -1,15 +1,27 @@
 <h1>Welcome back!</h1>
 <section>
   <h2>Recent lists</h2>
-  <div class="lists-container"></div>
+  <div class="lists-container">
+    @for (item of testData; track $index) {
+    <app-main-page-explorer-item [name]="item.name" [type]="item.type" />
+    }
+  </div>
 </section>
 <section>
   <h2>Your favorites</h2>
-  <div class="lists-container"></div>
+  <div class="lists-container">
+    @for (item of testData2; track $index) {
+    <app-main-page-explorer-item [name]="item.name" [type]="item.type" />
+    }
+  </div>
 </section>
 <section>
   <h2>Shared with me</h2>
-  <div class="lists-container"></div>
+  <div class="lists-container">
+    @for (item of testData3; track $index) {
+    <app-main-page-explorer-item [name]="item.name" [type]="item.type" />
+    }
+  </div>
   <h3>Quick create & share</h3>
   <div class="lists-container"></div>
 </section>

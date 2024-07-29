@@ -21,4 +21,5 @@ export const routes: Routes = [
       { path: 'set-name', component: RegisterStep2FormComponent },
     ],
   },
+  { path: '**', redirectTo: '' },
 ];
