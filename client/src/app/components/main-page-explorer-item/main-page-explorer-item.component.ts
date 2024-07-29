@@ -1,7 +1,7 @@
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { ArdiumIconModule } from '@ardium-ui/ui';
-import { ListExplorerItemType } from './types';
+import { ListExplorerItemType } from '@typings';
 
 @Component({
   selector: 'app-main-page-explorer-item',
