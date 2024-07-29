@@ -1,3 +1,4 @@
+//! Ardium UI variables
 $bg: var(--ard-bg);
 $bg-alt: var(--ard-bg-alt);
 $overlay: var(--ard-overlay);
@@ -119,3 +120,6 @@ $info700: rgb(var(--ard-info-700));
 $info700-rgb: var(--ard-info-700);
 $info900: rgb(var(--ard-info-900));
 $info900-rgb: var(--ard-info-900);
+
+//! app variables
+$on-surface: var(--on-surface);

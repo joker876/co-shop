@@ -1,6 +1,8 @@
-<div class="icon-container">
-  <ard-icon [icon]="type()" filled />
-</div>
-<div class="text-container">
-  {{ name() }}
-</div>
+<button>
+  <div class="icon-container">
+    <ard-icon [icon]="type()" [class.is-folder]="type() === 'folder'" filled />
+  </div>
+  <div class="text-container">
+    {{ name() }}
+  </div>
+</button>
