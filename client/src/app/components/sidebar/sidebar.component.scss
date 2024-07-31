@@ -1,0 +1,45 @@
+@import '../../../variables';
+
+app-sidebar .sidebar {
+  width: 14rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+
+  .ard-button {
+    height: 3.5em;
+    border-radius: 10px;
+  }
+  nav {
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          padding-left: 1rem;
+          height: 2rem;
+          color: $text-col;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          width: 100%;
+          border-radius: 9999px;
+
+          .link-text {
+            font-size: 0.9rem;
+          }
+          &:hover {
+            background-color: $bg-f;
+          }
+          &.tab-active {
+            background-color: $main100;
+          }
+        }
+      }
+    }
+  }
+}

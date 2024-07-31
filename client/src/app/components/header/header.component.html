@@ -1,12 +1,13 @@
 <header>
-  <div>
-    @if (headerService.headerButton()) {
+  <div class="app-logo" [routerLink]="homeTab">
+    <img src="logo.svg" />
+    <div class="app-name">CoShop</div>
+  </div>
+  @if (headerService.headerButton()) {
+    <div>
       <ard-icon-button color="none">
         <ard-icon [icon]="headerService.headerButton()" />
       </ard-icon-button>
-    }
-  </div>
-  <div class="header-title">
-    {{ headerService.header() }}
-  </div>
+    </div>
+  }
 </header>

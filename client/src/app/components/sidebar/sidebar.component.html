@@ -1,0 +1,18 @@
+<div class="sidebar">
+  <ard-button color="none">
+    <ard-icon icon="add" />
+    New
+  </ard-button>
+  <nav>
+    <ul>
+      @for (tab of locationService.navTabs(); track tab.type) {
+        <li>
+          <a [routerLink]="tab.type" [class.tab-active]="tab.active">
+            <ard-icon [icon]="tab.icon" [filled]="tab.active" />
+            <span class="link-text"> {{ tab.label }} </span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</div>
