@@ -4,9 +4,9 @@ h1 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 1.625rem;
+  font-weight: 400;
 }
-
 section {
   padding-top: 1rem;
 }
@@ -14,21 +14,30 @@ h2 {
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
   font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: normal;
   color: $text2;
+}
+.suggested {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+.suggested-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 $grid-cell-wdith: minmax(200px, 1fr);
-.lists-container,
-.quick-create-container {
+.lists-container {
   display: grid;
   gap: 1rem;
   padding-top: 0.5rem;
 }
 .lists-container {
   grid-template-columns: repeat(4, $grid-cell-wdith);
-  max-height: 2.75rem;
-  overflow: hidden;
-  box-sizing: content-box;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -41,7 +50,8 @@ $grid-cell-wdith: minmax(200px, 1fr);
     grid-template-columns: repeat(2, $grid-cell-wdith);
   }
 }
-
-.quick-create-container {
-  grid-template-columns: 1fr 1fr;
+@media only screen and (max-width: $mobile-width) {
+  .lists-container {
+    grid-template-columns: repeat(1, $grid-cell-wdith);
+  }
 }
