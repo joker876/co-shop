@@ -1,12 +1,10 @@
 import { Response } from 'express';
+import { _BaseAssert } from './_base-assert';
 
-export class AssertString {
-  constructor(
-    protected readonly res: Response,
-    protected readonly value: any,
-    protected readonly field: string,
-    public isOk: boolean
-  ) {}
+export class AssertString extends _BaseAssert {
+  constructor(res: Response, value: any, field: string, public override isOk: boolean) {
+    super(res, value, field);
+  }
 
   maxLength(length: number) {
     if (!this.isOk) return this;

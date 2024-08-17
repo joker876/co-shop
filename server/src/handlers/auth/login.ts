@@ -7,8 +7,8 @@ import { RequestHandler } from 'express';
 
 export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequest> = async (req, res) => {
   // validate all required args exist
-  if (!new Assert(res, req.body?.email, 'email').exists().string().minLength(6).maxLength(256).isOk) return;
-  if (!new Assert(res, req.body?.password, 'password').exists().string().minLength(8).isOk) return;
+  if (!new Assert(res, req.body?.email, 'email').exists().isString().minLength(6).maxLength(256).isFailed) return;
+  if (!new Assert(res, req.body?.password, 'password').exists().isString().minLength(8).isFailed) return;
 
   const { email, password } = req.body;
 

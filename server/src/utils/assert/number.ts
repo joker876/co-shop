@@ -1,14 +1,17 @@
 import { Response } from 'express';
+import { _BaseAssert } from './_base-assert';
 
-export class AssertNumber {
+export class AssertNumber extends _BaseAssert {
   constructor(
-    protected readonly res: Response,
-    protected readonly value: any,
-    protected readonly field: string,
-    public isOk: boolean
-  ) {}
+    res: Response,
+    value: any,
+    field: string,
+    public override isOk: boolean
+  ) {
+    super(res, value, field);
+  }
 
-  moreThan(num: number, canBeEqual = false) {
+  isMoreThan(num: number, canBeEqual = true) {
     if (!this.isOk) return this;
     if (!(this.value > num || (canBeEqual && this.value === num))) {
       this.res.status(400).json({
@@ -22,7 +25,7 @@ export class AssertNumber {
     }
     return this;
   }
-  lessThan(num: number, canBeEqual = false) {
+  isLessThan(num: number, canBeEqual = true) {
     if (!this.isOk) return this;
     if (!(this.value < num || (canBeEqual && this.value === num))) {
       this.res.status(400).json({
@@ -31,6 +34,20 @@ export class AssertNumber {
         field: this.field,
         got: this.value,
         expected: `<${canBeEqual ? '=' : ''} ${num}`,
+      });
+      this.isOk = false;
+    }
+    return this;
+  }
+  isBetween(min: number, max: number, canBeEqual = true) {
+    if (!this.isOk) return this;
+    if (!((this.value > min && this.value < max) || (canBeEqual && (this.value === min || this.value === max)))) {
+      this.res.status(400).json({
+        success: false,
+        error: 'EXPECTED_BETWEEN',
+        field: this.field,
+        got: this.value,
+        expected: `${min} <${canBeEqual ? '=' : ''} x <${canBeEqual ? '=' : ''} ${max}`,
       });
       this.isOk = false;
     }

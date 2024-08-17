@@ -4,6 +4,10 @@ import { UserInfoResponse } from './../user/user-info';
 export interface AuthLoginRequest {
   email: string;
   password: string;
-};
+}
 
-export type AuthLoginResponse = UserInfoResponse | ErrorResponse | BodyParamErrorResponse | GotExpectedBodyParamErrorResponse;
+export type AuthLoginResponse =
+  | UserInfoResponse
+  | ErrorResponse
+  | BodyParamErrorResponse
+  | GotExpectedBodyParamErrorResponse;

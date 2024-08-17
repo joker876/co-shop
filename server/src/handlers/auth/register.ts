@@ -11,8 +11,8 @@ export const registerStep1Handler: RequestHandler<null, AuthRegisterStep1Respons
   res
 ) => {
   // validate all required args exist
-  if (!new Assert(res, req.body?.email, 'email').exists().string().minLength(6).maxLength(256).isOk) return;
-  if (!new Assert(res, req.body?.password, 'password').exists().string().minLength(8).isOk) return;
+  if (!new Assert(res, req.body?.email, 'email').exists().isString().minLength(6).maxLength(256).isFailed) return;
+  if (!new Assert(res, req.body?.password, 'password').exists().isString().minLength(8).isFailed) return;
 
   const { email, password } = req.body;
 
@@ -58,10 +58,10 @@ export const registerStep2Handler: RequestHandler<any, AuthRegisterStep2Response
   res
 ) => {
   // validate all required args exist
-  if (!new Assert(res, req.body?.username, 'username').exists().string().minLength(1).maxLength(48).isOk) return;
+  if (!new Assert(res, req.body?.username, 'username').exists().isString().minLength(1).maxLength(48).isFailed) return;
 
   const { username } = req.body;
-  const userId = req.user as string;
+  const userId = req.user as number;
 
   // validate username
   if (!USERNAME_REGEX.test(username)) {

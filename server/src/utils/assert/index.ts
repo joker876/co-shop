@@ -1,19 +1,17 @@
 import { Response } from 'express';
+import { _BaseAssert } from './_base-assert';
 import { AssertNumber } from './number';
 import { AssertString } from './string';
 
-export class Assert {
-  public isOk = true;
-  constructor(protected res: Response, protected value: any, protected field: string) {}
-
+export class Assert extends _BaseAssert {
   exists() {
-    if (this.isOk && this.value == null) {
+    if (this.isOk && this.value == undefined) {
       this.res.status(400).json({ success: false, error: 'FIELD_REQUIRED', field: this.field });
       this.isOk = false;
     }
     return this;
   }
-  number() {
+  isNumber() {
     if (this.isOk && typeof this.value != 'number') {
       this.res
         .status(400)
@@ -22,7 +20,7 @@ export class Assert {
     }
     return new AssertNumber(this.res, this.value, this.field, this.isOk);
   }
-  string() {
+  isString() {
     if (this.isOk && typeof this.value != 'string') {
       this.res
         .status(400)
@@ -31,7 +29,7 @@ export class Assert {
     }
     return new AssertString(this.res, this.value, this.field, this.isOk);
   }
-  boolean() {
+  isBoolean() {
     if (this.isOk && typeof this.value != 'boolean') {
       this.res
         .status(400)
@@ -40,8 +38,8 @@ export class Assert {
     }
     return this;
   }
-  object() {
-    if (this.isOk && (typeof this.value != 'object' || this.value == undefined)) {
+  isObject() {
+    if (this.isOk && (this.value == undefined || typeof this.value != 'object')) {
       this.res
         .status(400)
         .json({ success: false, error: 'TYPE_ERROR', field: this.field, got: this.value, expected: 'object' });
@@ -49,7 +47,7 @@ export class Assert {
     }
     return this;
   }
-  array<T>(itemAssertFn: (res: Readonly<Response>, item: Readonly<T>, field: Readonly<string>) => boolean) {
+  isArray<T>(itemAssertFn: (res: Readonly<Response>, item: Readonly<T>, field: Readonly<string>) => boolean) {
     if (this.isOk) {
       if (!Array.isArray(this.value)) {
         this.res

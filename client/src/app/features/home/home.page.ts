@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ArdiumIconModule, ArdiumSegmentModule } from '@ardium-ui/ui';
+import { ExplorerDataService } from '@services/explorer-data/explorer-data.service';
 import { ListExplorerItemType } from '@typings';
 import { ExplorerItemComponent } from 'src/app/components/explorer-item';
 import { QuickCreateButtonComponent } from 'src/app/components/quick-create-button';
@@ -17,6 +18,14 @@ export class HomePage {
     { value: ListExplorerItemType.Folder, label: 'Folders', icon: 'folder' },
   ];
   readonly suggestedType = signal<[ListExplorerItemType]>([ListExplorerItemType.List]);
+
+  readonly explorerDataService = inject(ExplorerDataService);
+
+  constructor() {
+    setTimeout(() => {
+      this.explorerDataService.fetchFolderContents();
+    }, 2000);
+  }
 
   readonly testData = [
     { name: 'Test list', type: ListExplorerItemType.List },

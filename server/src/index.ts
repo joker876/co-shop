@@ -1,4 +1,3 @@
-import { authRouter } from '@routes/auth';
 import ansis from 'ansis';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -9,6 +8,7 @@ import session, * as expressSession from 'express-session';
 import passport from 'passport';
 import { connectToDb } from './db';
 import './dotenv-type';
+import { apiRouter } from './routes';
 import { OK_STR } from './utils/console-colors';
 
 const MySQLStore = MySQLStoreCreator(expressSession);
@@ -46,7 +46,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/auth', authRouter);
+app.use('/api', apiRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello world!');
