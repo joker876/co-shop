@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ArdiumIconModule, ArdiumSegmentModule } from '@ardium-ui/ui';
 import { ListExplorerItemType } from '@typings';
 import { ExplorerItemComponent } from 'src/app/components/explorer-item';
@@ -17,10 +17,6 @@ export class HomePage {
     { value: ListExplorerItemType.Folder, label: 'Folders', icon: 'folder' },
   ];
   readonly suggestedType = signal<[ListExplorerItemType]>([ListExplorerItemType.List]);
-
-  fdnfjd = effect(() => {
-    console.log(this.suggestedType());
-  })
 
   readonly testData = [
     { name: 'Test list', type: ListExplorerItemType.List },
