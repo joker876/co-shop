@@ -3,7 +3,7 @@ import { List } from '../list/list';
 import { BodyParamErrorResponse, GotExpectedBodyParamErrorResponse } from '../request-param-errors';
 import { SuccessResponse } from '../success';
 
-export interface FolderContentsRequest {
+export interface FolderContentsRequestParams {
   parentFolderId?: number;
 }
 export interface FolderContentsSuccessResponse extends SuccessResponse {

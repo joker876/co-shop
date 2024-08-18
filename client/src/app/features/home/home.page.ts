@@ -23,8 +23,8 @@ export class HomePage {
 
   constructor() {
     setTimeout(() => {
-      this.explorerDataService.fetchFolderContents();
-    }, 2000);
+      this.explorerDataService.fetchFolderContents('1');
+    }, 500);
   }
 
   readonly testData = [

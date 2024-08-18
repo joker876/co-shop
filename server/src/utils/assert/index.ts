@@ -29,6 +29,16 @@ export class Assert extends _BaseAssert {
     }
     return new AssertString(this.res, this.body, this.field, this.isOk);
   }
+  isStringNumber() {
+    const num = Number(this.value);
+    if (this.isOk && isNaN(num)) {
+      this.res
+        .status(400)
+        .json({ success: false, error: 'TYPE_ERROR', field: this.field, got: typeof this.value, expected: 'string' });
+      this.isOk = false;
+    }
+    return new AssertNumber(this.res, this.body, this.field, this.isOk);
+  }
   isBoolean() {
     if (this.isOk && typeof this.value != 'boolean') {
       this.res

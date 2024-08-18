@@ -1,19 +1,21 @@
 import { Assert } from '@assert';
 import { FolderModel } from '@models/folder';
-import { FolderContentsRequest, FolderContentsResponse } from '@shared/interfaces/explorer-data/folder-contents';
+import { FolderContentsRequestParams, FolderContentsResponse } from '@shared/interfaces/explorer-data/folder-contents';
 import { Folder } from '@shared/interfaces/folder/folder';
 import { RequestHandler } from 'express';
 
-export const folderContentsHandler: RequestHandler<null, FolderContentsResponse, FolderContentsRequest> = async (
-  req,
-  res
-) => {
+export const folderContentsHandler: RequestHandler<
+  null,
+  FolderContentsResponse,
+  null,
+  FolderContentsRequestParams
+> = async (req, res) => {
   // validate all required args exist
-  const { parentFolderId } = req.body;
+  const { parentFolderId } = req.query;
 
   if (
     parentFolderId != undefined &&
-    new Assert(res, req.body, 'parentFolderId').isNumber().isInteger().isMoreThan(0).isFailed
+    new Assert(res, req.query, 'parentFolderId').isStringNumber().isInteger().isMoreThan(0).isFailed
   )
     return;
 
