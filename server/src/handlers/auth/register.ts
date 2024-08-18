@@ -1,6 +1,18 @@
 import { Assert } from '@assert';
 import { UserModel } from '@models/user';
-import { AuthRegisterStep1Request, AuthRegisterStep1Response, AuthRegisterStep2Request, AuthRegisterStep2Response } from '@shared/interfaces/auth/register';
+import {
+  AuthRegisterStep1Request,
+  AuthRegisterStep1Response,
+  AuthRegisterStep2Request,
+  AuthRegisterStep2Response,
+} from '@shared/interfaces/auth/register';
+import {
+  MAX_EMAIL_LENGTH,
+  MAX_USERNAME_LENGTH,
+  MIN_EMAIL_LENGTH,
+  MIN_PASSWORD_LENGTH,
+  MIN_USERNAME_LENGTH,
+} from '@utils/constants';
 import { hashPassword } from '@utils/encryption';
 import { EMAIL_REGEX, PASSWORD_REGEX, USERNAME_REGEX } from '@utils/regexes';
 import { RequestHandler } from 'express';
@@ -11,8 +23,12 @@ export const registerStep1Handler: RequestHandler<null, AuthRegisterStep1Respons
   res
 ) => {
   // validate all required args exist
-  if (!new Assert(res, req.body?.email, 'email').exists().isString().minLength(6).maxLength(256).isFailed) return;
-  if (!new Assert(res, req.body?.password, 'password').exists().isString().minLength(8).isFailed) return;
+  if (
+    new Assert(res, req.body, 'email').exists().isString().minLength(MIN_EMAIL_LENGTH).maxLength(MAX_EMAIL_LENGTH)
+      .isFailed
+  )
+    return;
+  if (new Assert(res, req.body, 'password').exists().isString().minLength(MIN_PASSWORD_LENGTH).isFailed) return;
 
   const { email, password } = req.body;
 
@@ -58,7 +74,14 @@ export const registerStep2Handler: RequestHandler<any, AuthRegisterStep2Response
   res
 ) => {
   // validate all required args exist
-  if (!new Assert(res, req.body?.username, 'username').exists().isString().minLength(1).maxLength(48).isFailed) return;
+  if (
+    new Assert(res, req.body, 'username')
+      .exists()
+      .isString()
+      .minLength(MIN_USERNAME_LENGTH)
+      .maxLength(MAX_USERNAME_LENGTH).isFailed
+  )
+    return;
 
   const { username } = req.body;
   const userId = req.user as number;

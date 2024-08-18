@@ -19,6 +19,8 @@ export const folderContentsHandler: RequestHandler<null, FolderContentsResponse,
 
   const userId = req.user as number;
 
+  console.log(userId);
+
   const folders = (await FolderModel.getFoldersByParent(userId, parentFolderId)).map<Folder>(f => ({
     name: f.name,
     ownerId: f.owner,

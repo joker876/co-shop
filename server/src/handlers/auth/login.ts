@@ -1,14 +1,19 @@
 import { Assert } from '@assert';
 import { UserModel } from '@models/user';
 import { AuthLoginRequest, AuthLoginResponse } from '@shared/interfaces/auth/login';
+import { MAX_EMAIL_LENGTH, MIN_EMAIL_LENGTH, MIN_PASSWORD_LENGTH } from '@utils/constants';
 import { EMAIL_REGEX, PASSWORD_REGEX } from '@utils/regexes';
 import { compareSync } from 'bcrypt';
 import { RequestHandler } from 'express';
 
 export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequest> = async (req, res) => {
   // validate all required args exist
-  if (!new Assert(res, req.body?.email, 'email').exists().isString().minLength(6).maxLength(256).isFailed) return;
-  if (!new Assert(res, req.body?.password, 'password').exists().isString().minLength(8).isFailed) return;
+  if (
+    new Assert(res, req.body, 'email').exists().isString().minLength(MIN_EMAIL_LENGTH).maxLength(MAX_EMAIL_LENGTH)
+      .isFailed
+  )
+    return;
+  if (new Assert(res, req.body, 'password').exists().isString().minLength(MIN_PASSWORD_LENGTH).isFailed) return;
 
   const { email, password } = req.body;
 
