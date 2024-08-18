@@ -4,7 +4,7 @@ import { BodyParamErrorResponse, GotExpectedBodyParamErrorResponse } from '../re
 import { SuccessResponse } from '../success';
 
 export interface FolderContentsRequestParams {
-  parentFolderId?: number;
+  parentFolderId: string | '';
 }
 export interface FolderContentsSuccessResponse extends SuccessResponse {
   folders: Folder[];

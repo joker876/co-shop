@@ -7,10 +7,8 @@ export class AssertNumber extends _BaseAssert {
     value: any,
     field: string,
     public override isOk: boolean,
-    readonly isStringNumber: boolean = false
   ) {
     super(res, value, field);
-    this.value = isStringNumber ? Number(this.body?.[this.field]) : this.body?.[this.field];
   }
 
   isMoreThan(num: number, canBeEqual = true) {
