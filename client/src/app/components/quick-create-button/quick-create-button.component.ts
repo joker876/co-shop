@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { ArdiumIconModule } from '@ardium-ui/ui';
-import { ListExplorerItemType } from '@typings';
+import { ExplorerItemType } from '@typings';
 
 @Component({
   selector: 'app-quick-create-button',
@@ -10,5 +10,5 @@ import { ListExplorerItemType } from '@typings';
   styleUrl: './quick-create-button.component.scss',
 })
 export class QuickCreateButtonComponent {
-  readonly type = input.required<ListExplorerItemType>();
+  readonly type = input.required<ExplorerItemType>();
 }

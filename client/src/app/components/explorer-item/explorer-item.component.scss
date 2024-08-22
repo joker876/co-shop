@@ -8,11 +8,10 @@ button {
   align-items: flex-start;
   justify-content: center;
   gap: 0.5rem;
-  background-color: $bg-d;
-  border-radius: 0.75rem;
+  background: none;
   border: none;
-  outline: $bg-d 1px solid;
-  outline-offset: -1px;
+  border-top: 1px solid $border;
+  outline: none;
   text-align: start;
   min-height: 2.75rem;
   color: $text4;
@@ -26,7 +25,7 @@ button {
   }
 
   &:hover {
-    background-color: $bg-f;
+    background-color: rgba(0,0,0,0.05);
   }
   &:focus-visible {
     outline-color: $main500;

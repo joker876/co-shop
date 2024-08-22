@@ -30,28 +30,9 @@ h2 {
   gap: 0.5rem;
 }
 
-$grid-cell-wdith: minmax(200px, 1fr);
 .lists-container {
   display: grid;
-  gap: 1rem;
   padding-top: 0.5rem;
-}
-.lists-container {
-  grid-template-columns: repeat(4, $grid-cell-wdith);
-}
-
-@media only screen and (max-width: 1200px) {
-  .lists-container {
-    grid-template-columns: repeat(3, $grid-cell-wdith);
-  }
-}
-@media only screen and (max-width: 1000px) {
-  .lists-container {
-    grid-template-columns: repeat(2, $grid-cell-wdith);
-  }
-}
-@media only screen and (max-width: $mobile-width) {
-  .lists-container {
-    grid-template-columns: repeat(1, $grid-cell-wdith);
-  }
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid $border;
 }

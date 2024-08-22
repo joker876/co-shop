@@ -1,5 +1,5 @@
-export const ListExplorerItemType = {
+export const ExplorerItemType = {
   Folder: 'folder',
   List: 'list-alt',
 } as const;
-export type ListExplorerItemType = (typeof ListExplorerItemType)[keyof typeof ListExplorerItemType];
+export type ExplorerItemType = (typeof ExplorerItemType)[keyof typeof ExplorerItemType];
