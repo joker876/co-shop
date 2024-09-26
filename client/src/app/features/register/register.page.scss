@@ -11,6 +11,8 @@
   padding-left: 32px;
 }
 main {
+  max-width: 400px;
+
   .ard-card {
     > * {
       padding-left: 24px;
@@ -95,16 +97,23 @@ aside {
 }
 
 @media only screen and (max-width: 900px) {
-  .login-wrapper {
-    padding: 16px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .login-wrapper {
+  .register-wrapper {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 400px;
+    padding: 0 32px;
+    justify-content: center;
   }
   aside {
     display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .register-wrapper {
+    padding: 0 16px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  main {
+    width: 100%;
   }
 }
