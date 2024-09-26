@@ -57,8 +57,9 @@ app.listen(PORT, () => {
   console.log(`${OK_STR}Running on port ${ansis.greenBright.underline(String(PORT))}!`);
 
   try {
-    connectToDb();
+    const conn = connectToDb();
     console.log(`${OK_STR}Connected to database!`);
+    conn.end();
   } catch (err) {
     throw err;
   }
