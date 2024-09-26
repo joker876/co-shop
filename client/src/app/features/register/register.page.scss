@@ -109,11 +109,40 @@ aside {
 }
 @media only screen and (max-width: 600px) {
   .register-wrapper {
-    padding: 0 16px;
+    padding: 0;
     grid-template-columns: 1fr;
     justify-items: center;
-  }
-  main {
-    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    main {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 100%;
+
+      form {
+        height: 100%;
+      }
+      .ard-card {
+        height: 100%;
+        border-radius: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content 1fr;
+        gap: 1rem;
+
+        ard-card-action-buttons {
+          height: 100%;
+          justify-content: space-between;
+        }
+      }
+    }
   }
 }

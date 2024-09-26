@@ -16,7 +16,9 @@
     </ard-card-content>
     <ard-card-action-buttons>
       <div class="button-container">
-        <ard-button appearance="raised-strong" type="submit" [disabled]="authService.isRegisterPending()"> Accept </ard-button>
+        <ard-button appearance="raised-strong" type="submit" [disabled]="authService.isRegisterPending()">
+          Accept
+        </ard-button>
         @if (authService.isRegisterPending()) {
           <ard-spinner />
         }
