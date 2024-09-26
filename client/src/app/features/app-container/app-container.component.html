@@ -1,9 +1,9 @@
 <div class="app-container">
   <app-header />
   <div class="below-header">
-    <aside [class.shown]="headerService.isSidebarOpen()" (click)="headerService.toggleSidebar()">
+    <!-- <aside [class.shown]="headerService.isSidebarOpen()" (click)="headerService.toggleSidebar()">
       <app-sidebar />
-    </aside>
+    </aside> // TODO uncomment when sidebar is ready -->
     <main>
       <router-outlet />
     </main>

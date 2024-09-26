@@ -48,14 +48,7 @@ main {
   .below-header {
     position: static;
     display: grid;
-    grid-template-columns: max-content 1fr;
-  }
-  main {
-    max-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding: 1rem 2rem;
-    background-color: $bg;
-    border-top-left-radius: 1rem;
+    // grid-template-columns: max-content 1fr; // TODO uncomment when sidebar is ready
+    grid-template-columns: 1fr;
   }
 }
