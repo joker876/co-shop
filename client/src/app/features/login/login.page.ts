@@ -38,7 +38,6 @@ export class LoginPage {
   });
 
   async onFormSubmit() {
-    console.log('onSubmit');
     if (!this.form.valid) {
       this.form.markAllAsTouched();
       return;
