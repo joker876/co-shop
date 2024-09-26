@@ -1,13 +1,18 @@
 <header>
-  <div class="app-logo" [routerLink]="homeTab">
-    <img src="logo.svg" />
-    <div class="app-name">CoShop</div>
-  </div>
-  @if (headerService.headerButton()) {
-    <div>
-      <ard-icon-button color="none">
-        <ard-icon [icon]="headerService.headerButton()" />
-      </ard-icon-button>
+  <div>
+    @if (headerService.headerButton()) {
+      <div>
+        <ard-icon-button color="none">
+          <ard-icon [icon]="headerService.headerButton()" />
+        </ard-icon-button>
+      </div>
+    }
+    <div class="app-logo" [routerLink]="homeTab">
+      <img src="logo.svg" />
+      <div class="app-name">CoShop</div>
     </div>
-  }
+  </div>
+  <ard-icon-button color="none" class="menu-button" (click)="headerService.toggleSidebar()">
+    <ard-icon>menu</ard-icon>
+  </ard-icon-button>
 </header>

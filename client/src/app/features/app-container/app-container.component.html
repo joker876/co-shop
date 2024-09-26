@@ -1,7 +1,7 @@
 <div class="app-container">
   <app-header />
   <div class="below-header">
-    <aside>
+    <aside [class.shown]="headerService.isSidebarOpen()" (click)="headerService.toggleSidebar()">
       <app-sidebar />
     </aside>
     <main>

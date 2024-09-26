@@ -19,6 +19,13 @@ export class HeaderService {
   public readonly headerButton = this._headerButton.asReadonly();
   public readonly setHeaderButton = this._headerButton.set;
 
+  private readonly _isSidebarOpen = signal<boolean>(false);
+  public readonly isSidebarOpen = this._isSidebarOpen.asReadonly();
+
+  public toggleSidebar() {
+    this._isSidebarOpen.update(v => !v);
+  }
+
   constructor() {
     // title setter effect
     effect(() => {

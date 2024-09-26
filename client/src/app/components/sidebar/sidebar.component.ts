@@ -1,6 +1,7 @@
 import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ArdiumButtonModule, ArdiumIconModule } from '@ardium-ui/ui';
+import { HeaderService } from '@services/header';
 import { LocationService } from '@services/location';
 
 @Component({
@@ -13,4 +14,5 @@ import { LocationService } from '@services/location';
 })
 export class SidebarComponent {
   public readonly locationService = inject(LocationService);
+  public readonly headerSerivce = inject(HeaderService);
 }
