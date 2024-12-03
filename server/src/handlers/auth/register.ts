@@ -43,7 +43,7 @@ export const registerStep1Handler: RequestHandler<null, AuthRegisterStep1Respons
     return;
   }
 
-  const hashedPassword = hashPassword(password);
+  const hashedPassword = req.isLocalhost ? password : hashPassword(password);
 
   // save user or send error if it exists
   let insertData: ResultSetHeader;
