@@ -14,7 +14,7 @@
       "splitTerminals": [
         {
           "name": "ng serve",
-          "commands": ["cd client", "ng serve --port=6021 --host=0.0.0.0"]
+          "commands": ["cd client", "npm run start"]
         }
       ]
     },
