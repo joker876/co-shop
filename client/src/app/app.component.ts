@@ -13,12 +13,11 @@ import {
 import { HttpService } from './services/http/http.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule],
-  providers: [HttpClient, HttpService],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    imports: [RouterOutlet, FormsModule],
+    providers: [HttpClient, HttpService],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
   readonly http = inject(HttpService);

@@ -5,11 +5,10 @@ import { ExplorerItemType } from '@typings';
 import { ExplorerItemComponent } from 'src/app/components/explorer-item';
 
 @Component({
-  selector: 'app-main',
-  standalone: true,
-  imports: [ExplorerItemComponent, ArdiumSegmentModule, ArdiumIconModule],
-  templateUrl: './home.page.html',
-  styleUrl: './home.page.scss',
+    selector: 'app-main',
+    imports: [ExplorerItemComponent, ArdiumSegmentModule, ArdiumIconModule],
+    templateUrl: './home.page.html',
+    styleUrl: './home.page.scss'
 })
 export class HomePage {
   readonly suggestedOptions = [

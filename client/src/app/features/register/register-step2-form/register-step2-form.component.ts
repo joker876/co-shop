@@ -7,18 +7,17 @@ import { AuthRegisterStep2Request } from '@shared/interfaces/auth/register';
 import { disableAllControls, restoreDisabledStates } from '@utils/form-utils';
 
 @Component({
-  selector: 'app-register-step2-form',
-  standalone: true,
-  imports: [
-    ArdiumCardModule,
-    ArdiumSimpleInputModule,
-    ArdiumButtonModule,
-    ArdiumSpinnerModule,
-    CommonModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './register-step2-form.component.html',
-  styleUrls: ['./register-step2-form.component.scss'],
+    selector: 'app-register-step2-form',
+    imports: [
+        ArdiumCardModule,
+        ArdiumSimpleInputModule,
+        ArdiumButtonModule,
+        ArdiumSpinnerModule,
+        CommonModule,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './register-step2-form.component.html',
+    styleUrls: ['./register-step2-form.component.scss']
 })
 export class RegisterStep2FormComponent {
   readonly authService = inject(AuthService);

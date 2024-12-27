@@ -13,19 +13,18 @@ import { AuthLoginRequest } from '@shared/interfaces/auth/login';
 import { customValidators, disableAllControls, restoreDisabledStates } from '@utils/form-utils';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [
-    ArdiumCardModule,
-    ArdiumSimpleInputModule,
-    ArdiumPasswordInputModule,
-    ArdiumButtonModule,
-    CommonModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './login.page.html',
-  styleUrl: './login.page.scss',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-login',
+    imports: [
+        ArdiumCardModule,
+        ArdiumSimpleInputModule,
+        ArdiumPasswordInputModule,
+        ArdiumButtonModule,
+        CommonModule,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './login.page.html',
+    styleUrl: './login.page.scss',
+    encapsulation: ViewEncapsulation.None
 })
 export class LoginPage {
   readonly authService = inject(AuthService);

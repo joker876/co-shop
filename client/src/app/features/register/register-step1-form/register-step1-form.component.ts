@@ -14,18 +14,17 @@ import { AuthRegisterStep1Request } from '@shared/interfaces/auth/register';
 import { customValidators, disableAllControls, restoreDisabledStates } from '@utils/form-utils';
 
 @Component({
-  selector: 'app-register-step1-form',
-  standalone: true,
-  imports: [
-    ArdiumCardModule,
-    ArdiumSimpleInputModule,
-    ArdiumPasswordInputModule,
-    ArdiumButtonModule,
-    ArdiumSpinnerModule,
-    CommonModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './register-step1-form.component.html',
+    selector: 'app-register-step1-form',
+    imports: [
+        ArdiumCardModule,
+        ArdiumSimpleInputModule,
+        ArdiumPasswordInputModule,
+        ArdiumButtonModule,
+        ArdiumSpinnerModule,
+        CommonModule,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './register-step1-form.component.html'
 })
 export class RegisterStep1FormComponent {
   readonly authService = inject(AuthService);

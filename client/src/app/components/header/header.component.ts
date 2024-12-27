@@ -5,11 +5,10 @@ import { HeaderService } from '@services/header';
 import { NavTabType } from '@services/location';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [RouterModule, ArdiumIconButtonModule, ArdiumIconModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+    selector: 'app-header',
+    imports: [RouterModule, ArdiumIconButtonModule, ArdiumIconModule],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   public readonly headerService = inject(HeaderService);

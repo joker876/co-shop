@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '../node_modules/@ardium-ui/ui/themes/default/core.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/card.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/spinner.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/buttons/button.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/buttons/icon-button.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/form-field-frame.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/inputs/simple-input.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/inputs/password-input.scss';
-@import '../node_modules/@ardium-ui/ui/themes/default/segment.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/core.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/card.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/spinner.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/buttons/button.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/buttons/icon-button.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/form-field-frame.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/inputs/simple-input.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/inputs/password-input.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/segment.scss';
 
 *,
 *::before,
