@@ -15,6 +15,7 @@ import {
 } from '@utils/constants';
 import { hashPassword } from '@utils/encryption';
 import { EMAIL_REGEX, PASSWORD_REGEX, USERNAME_REGEX } from '@utils/regexes';
+import { getAuthUserId } from '@utils/user';
 import { RequestHandler } from 'express';
 import { ResultSetHeader } from 'mysql2';
 
@@ -84,7 +85,7 @@ export const registerStep2Handler: RequestHandler<any, AuthRegisterStep2Response
     return;
 
   const { username } = req.body;
-  const userId = req.user as number;
+  const userId = getAuthUserId(req);
 
   // validate username
   if (!USERNAME_REGEX.test(username)) {

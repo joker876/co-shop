@@ -3,7 +3,7 @@ import { queryDb } from 'src/db';
 import { ListRecord } from 'src/interfaces/list';
 
 export class ListModel {
-  static async getListsByParent(userId: number, parentId?: number): Promise<ListRecord[]> {
+  static async getListsByParent(userId: number, parentId?: number | null): Promise<ListRecord[]> {
     const res = parentId
       ? await queryDb<RowDataPacket[]>('SELECT * FROM lists WHERE owner = ? AND parent_folder = ?;', [
           userId,

@@ -3,7 +3,7 @@ import { queryDb } from 'src/db';
 import { FolderRecord } from 'src/interfaces/folder';
 
 export class FolderModel {
-  static async getFoldersByParent(userId: number, parentId?: number): Promise<FolderRecord[]> {
+  static async getFoldersByParent(userId: number, parentId?: number | null): Promise<FolderRecord[]> {
     const res = parentId
       ? await queryDb<RowDataPacket[]>('SELECT * FROM folders WHERE owner = ? AND parent_folder = ?;', [
           userId,

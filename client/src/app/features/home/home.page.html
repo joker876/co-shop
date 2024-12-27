@@ -12,8 +12,9 @@
     </ard-segment>
   </div>
   <div class="lists-container">
-    @for (item of (suggestedType()[0] === 'folder' ? testData2 : testData); track $index) {
-    <app-explorer-item [name]="item.name" [type]="item.type" />
+    @for (item of (suggestedType()[0] === 'folder' ? explorerDataService.folders() : explorerDataService.lists()); track
+    $index) {
+    <app-explorer-item [name]="item.name" [type]="suggestedType()[0]" />
     }
   </div>
 </section>
