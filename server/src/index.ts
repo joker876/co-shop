@@ -8,10 +8,10 @@ import session, * as expressSession from 'express-session';
 import passport from 'passport';
 import { connectToDb } from './db';
 import './dotenv-type';
+import './global';
 import { isLocalhostMiddleware } from './middleware/is-local';
 import { apiRouter } from './routes';
 import { OK_STR } from './utils/console-colors';
-import './utils/to-public';
 
 const MySQLStore = MySQLStoreCreator(expressSession);
 
