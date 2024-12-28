@@ -17,7 +17,7 @@
           <span class="separator">•</span>
         }
         @if (item.date) {
-          {{ item.date | date: 'dd MMM, yyyy' }}
+          {{ item.date | smartDate }}
         }
       </app-explorer-item>
     } @empty {

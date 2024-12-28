@@ -1,11 +1,11 @@
 import { Response } from 'express';
 import { AssertNumber } from './number';
 
-export class AssertStringNumber extends AssertNumber {
+export class AssertStringNumber<T extends Record<string, any>> extends AssertNumber<T> {
   constructor(
     res: Response,
-    value: any,
-    field: string,
+    value: T,
+    field: keyof T,
     public override isOk: boolean,
   ) {
     super(res, value, field, isOk);

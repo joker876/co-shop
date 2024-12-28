@@ -1,14 +1,34 @@
+import { List } from '@shared/interfaces/list/list';
 import { RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
-import { ListRecord } from 'src/interfaces/list';
+import { Publicable } from 'src/interfaces/publicable';
+
+export class ListRecord implements Publicable<List> {
+  readonly id!: number;
+  readonly name!: string;
+  readonly shop!: string | null;
+  readonly date!: Date | null;
+  readonly owner!: number;
+  readonly parent_folder!: number | null;
+
+  constructor(data: RowDataPacket) {
+    Object.assign(this, data);
+  }
+
+  toPublic(): List {
+    return {
+      id: this.id,
+      name: this.name,
+      shop: this.shop,
+      date: this.date,
+    };
+  }
+}
 
 export class ListModel {
   static async getListsByParent(userId: number, parentId?: number | null): Promise<ListRecord[]> {
     const res = parentId
-      ? await queryDb<RowDataPacket[]>('SELECT * FROM lists WHERE owner = ? AND parent_folder = ?;', [
-          userId,
-          parentId,
-        ])
+      ? await queryDb<RowDataPacket[]>('SELECT * FROM lists WHERE owner = ? AND parent_folder = ?;', [userId, parentId])
       : await queryDb<RowDataPacket[]>('SELECT * FROM lists WHERE owner = ? AND parent_folder IS NULL;', [
           userId,
           parentId,
@@ -16,6 +36,6 @@ export class ListModel {
     if (res.err) {
       throw res.err;
     }
-    return res.result as ListRecord[];
+    return res.result.map(v => new ListRecord(v));
   }
 }

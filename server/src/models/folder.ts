@@ -1,6 +1,25 @@
+import { Folder } from '@shared/interfaces/folder/folder';
 import { RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
-import { FolderRecord } from 'src/interfaces/folder';
+
+export class FolderRecord {
+  readonly id!: number;
+  readonly name!: string;
+  readonly owner!: number;
+  readonly parent_folder!: number | null;
+
+  constructor(data: RowDataPacket) {
+    Object.assign(this, data);
+  }
+
+  toPublic(): Folder {
+    return {
+      id: this.id,
+      name: this.name,
+      parentFolderId: this.parent_folder,
+    };
+  }
+}
 
 export class FolderModel {
   static async getFoldersByParent(userId: number, parentId?: number | null): Promise<FolderRecord[]> {
@@ -16,6 +35,6 @@ export class FolderModel {
     if (res.err) {
       throw res.err;
     }
-    return res.result as FolderRecord[];
+    return res.result.map(v => new FolderRecord(v));
   }
 }
