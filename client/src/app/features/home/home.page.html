@@ -11,10 +11,9 @@
       </ng-template>
     </ard-segment>
   </div>
-  <div class="lists-container">
-    @for (item of (suggestedType()[0] === 'folder' ? explorerDataService.folders() : explorerDataService.lists()); track
-    $index) {
-    <app-explorer-item [name]="item.name" [type]="suggestedType()[0]" />
-    }
-  </div>
+  <app-explorer-list
+    [type]="suggestedType()[0]"
+    [lists]="explorerDataService.lists()"
+    [folders]="explorerDataService.folders()"
+  />
 </section>

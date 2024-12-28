@@ -1,0 +1,13 @@
+@for (item of isFolder() ? folders() : lists(); track type() + item.id) {
+  <div class="lists-container">
+    <app-explorer-item [name]="item.name" [type]="type()" />
+  </div>
+} @empty {
+  <div class="empty-text">
+    @if (isFolder()) {
+      <p>No folders found</p>
+    } @else {
+      <p>No lists found</p>
+    }
+  </div>
+}
