@@ -1,13 +1,29 @@
-@for (item of isFolder() ? folders() : lists(); track type() + item.id) {
-  <div class="lists-container">
-    <app-explorer-item [name]="item.name" [type]="type()" />
-  </div>
-} @empty {
-  <div class="empty-text">
-    @if (isFolder()) {
-      <p>No folders found</p>
-    } @else {
-      <p>No lists found</p>
+<div class="lists-container">
+  @if (isFolder()) {
+    @for (item of folders(); track item.id) {
+      <app-explorer-item [name]="item.name" [type]="type()" />
+    } @empty {
+      <div class="empty-text">
+        <p>No folders found</p>
+      </div>
     }
-  </div>
-}
+  } @else {
+    @for (item of lists(); track item.id) {
+      <app-explorer-item [name]="item.name" [type]="type()">
+        @if (item.shop) {
+          {{ item.shop }}
+        }
+        @if (item.shop && item.date) {
+          <span class="separator">•</span>
+        }
+        @if (item.date) {
+          {{ item.date | date: 'dd MMM, yyyy' }}
+        }
+      </app-explorer-item>
+    } @empty {
+      <div class="empty-text">
+        <p>No lists found</p>
+      </div>
+    }
+  }
+</div>

@@ -1,56 +1,78 @@
 @use '../../../../variables.scss' as *;
 
-button {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
+:host {
   border-top: 1px solid $border;
-  outline: none;
-  text-align: start;
-  min-height: 2.75rem;
-  color: $text4;
 
-  .top-container {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    align-items: center;
-    gap: 0.875rem;
+  &:last-child {
+    border-bottom: 1px solid $border;
+  }
+  button {
     width: 100%;
-  }
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: start;
+    height: 3rem;
+    color: $text4;
 
-  &:hover {
-    background-color: rgba(0,0,0,0.05);
-  }
-  &:focus-visible {
-    outline-color: $main500;
-    background-color: $main100;
-  }
-  .icon-container {
-    color: $main500;
-    height: max-content;
-    height: 1.5rem;
+    .name-container {
+      gap: 0.875rem;
+      width: 100%;
+      padding-left: 0.75rem;
+      display: grid;
+      grid-template-columns: max-content minmax(max-content, 30ch);
 
-    > ard-icon {
-      font-size: 1.5rem;
-
-      &.is-folder {
-        color: $on-surface;
+      .name {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: $text;
+        max-width: 40ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .additional-info {
+        font-size: 0.75rem;
+        color: $text3;
       }
     }
-  }
-  .text-container {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: $text;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    &:focus-visible {
+      outline-color: $main500;
+      background-color: $main100;
+    }
+    .icon-container {
+      color: $main500;
+      height: max-content;
+      height: 1.5rem;
+
+      > ard-icon {
+        font-size: 1.5rem;
+
+        &.is-folder {
+          color: $on-surface;
+        }
+      }
+    }
+
+    ard-icon-button {
+      display: none;
+
+      ard-icon {
+        font-size: 1.25rem;
+      }
+    }
+    &:hover {
+      ard-icon-button {
+        display: block;
+      }
+    }
   }
 }

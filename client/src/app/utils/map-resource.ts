@@ -1,9 +1,7 @@
 export function mapResource<T>(obj: T) {
   return new ResourceMapper<T>(obj);
 }
-type ArrayElement<ArrayType> = ArrayType extends readonly (infer ElementType)[]
-  ? ElementType
-  : never;
+type ArrayElement<ArrayType> = ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
 
 type KeysOfArrayProps<T> = {
   [K in keyof T]: T[K] extends any[] ? K : never;
@@ -17,7 +15,9 @@ class ResourceMapper<T> {
     return this.obj;
   }
   public mapDate<K extends string & keyof T>(key: K): ResourceMapper<T> {
-    this.obj[key] = new Date(this.obj[key] as any) as any;
+    if (this.obj[key]) {
+      this.obj[key] = new Date(this.obj[key] as any) as any;
+    }
     return this;
   }
   public mapArray<K extends KeysOfArrayProps<T>, U extends ArrayElement<T[K]>>(
