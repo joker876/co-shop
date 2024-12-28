@@ -7,6 +7,8 @@ export interface PartialUserInfoResponse extends SuccessResponse {
   user: Partial<UserInfo>;
 }
 export interface UserInfo {
+  id: number;
   email: string;
   username: string;
+  createdAt: Date;
 }

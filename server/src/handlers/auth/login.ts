@@ -50,5 +50,5 @@ export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequ
 
   await UserModel.updateLastLogin(user.id);
 
-  res.status(200).json({ success: true, user: { email, username: user.username } });
+  res.status(200).json({ success: true, user: user.toPublic() });
 };

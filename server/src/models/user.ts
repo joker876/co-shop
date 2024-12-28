@@ -1,7 +1,28 @@
+import { UserInfo } from '@shared/interfaces/user/user-info';
 import { newExistsQuery } from '@utils/db-helpers';
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
-import { UserRecord } from 'src/interfaces/user';
+
+export class UserRecord {
+  readonly id!: number;
+  readonly email!: string;
+  readonly username!: string;
+  readonly password!: string;
+  readonly created_date!: Date;
+
+  constructor(data: RowDataPacket) {
+    Object.assign(this, data);
+  }
+
+  toPublic(): UserInfo {
+    return {
+      id: this.id,
+      email: this.email,
+      username: this.username,
+      createdAt: this.created_date,
+    };
+  }
+}
 
 export class UserModel {
   static async doesEmailExist(email: string): Promise<boolean> {
@@ -13,7 +34,7 @@ export class UserModel {
     if (res.err) {
       throw res.err;
     }
-    return res.result[0] as UserRecord | undefined;
+    return res.result[0] && new UserRecord(res.result[0]);
   }
 
   static async findById(id: number): Promise<UserRecord | undefined> {
@@ -21,7 +42,7 @@ export class UserModel {
     if (res.err) {
       throw res.err;
     }
-    return res.result[0] as UserRecord | undefined;
+    return res.result[0] && new UserRecord(res.result[0]);
   }
 
   static async createNewUser(email: string, hashedPassword: string) {
@@ -37,14 +58,10 @@ export class UserModel {
 
   static async checkUserHasNoUsername(userId: number, username: string) {
     console.log(userId, username);
-    const res = await queryDb('UPDATE users SET username = ? WHERE id = ? AND NOT username;', [
-      username,
-      userId,
-    ]);
+    const res = await queryDb<ResultSetHeader>('UPDATE users SET username = ? WHERE id = ? AND NOT username;', [username, userId]);
     if (res.err) {
       throw res.err;
     }
-    console.log(res);
     return res.result;
   }
   static async setBrandNewUserUsername(userId: number, username: string) {
