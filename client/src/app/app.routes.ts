@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AppContainerComponent } from './features/app-container/app-container.component';
 import { HomePage } from './features/home/home.page';
 import { RegisterStep1FormComponent } from './features/register/register-step1-form/register-step1-form.component';
 import { RegisterStep2FormComponent } from './features/register/register-step2-form/register-step2-form.component';
@@ -7,7 +6,7 @@ import { RegisterStep2FormComponent } from './features/register/register-step2-f
 export const routes: Routes = [
   {
     path: '',
-    component: AppContainerComponent,
+    loadComponent: () => import('./features/app-container/app-container.component').then(v => v.AppContainerComponent),
     children: [{ path: '', component: HomePage }],
   },
   { path: 'login', loadComponent: () => import('./features/login/login.page').then(v => v.LoginPage) },
