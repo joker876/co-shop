@@ -1,8 +1,9 @@
-import { effect, inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { HttpService } from '@services/http';
 import { UserInfoResponse } from '@shared/interfaces/user/user-info';
 import { getSuccessRes } from '@utils/get-success';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +11,14 @@ import { getSuccessRes } from '@utils/get-success';
 export class UserService {
   private readonly http = inject(HttpService);
 
-  private readonly _user = rxResource({
+  private readonly _myself = rxResource({
     loader: () => {
-      return this.http.get<UserInfoResponse>('/user/myself').pipe(getSuccessRes());
+      return this.http.get<UserInfoResponse>('/user/myself').pipe(
+        getSuccessRes(),
+        map(res => res?.user)
+      );
     },
   });
 
-  cdfd = effect(() => {
-    console.log('user', this._user.value());
-  });
+  readonly myself = this._myself.asReadonly();
 }
