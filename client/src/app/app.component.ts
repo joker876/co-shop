@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { UserService } from '@services/user/user.service';
 import { AuthLoginRequest, AuthLoginResponse } from '../../../shared/interfaces/auth/login';
 import { AuthLogoutRequest, AuthLogoutResponse } from '../../../shared/interfaces/auth/logout';
 import {
@@ -21,6 +22,7 @@ import { HttpService } from './services/http/http.service';
 })
 export class AppComponent {
   readonly http = inject(HttpService);
+  readonly userService = inject(UserService);
 
   readonly email = signal(localStorage.getItem('TEMP-email') ?? '');
   readonly username = signal(localStorage.getItem('TEMP-username') ?? '');

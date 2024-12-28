@@ -2,8 +2,9 @@ import { UserInfo } from '@shared/interfaces/user/user-info';
 import { newExistsQuery } from '@utils/db-helpers';
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
+import { Publicable } from 'src/interfaces/publicable';
 
-export class UserRecord {
+export class UserRecord implements Publicable<UserInfo> {
   readonly id!: number;
   readonly email!: string;
   readonly username!: string;

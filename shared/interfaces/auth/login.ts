@@ -1,5 +1,5 @@
 import { BodyParamErrorResponse, ErrorResponse, GotExpectedBodyParamErrorResponse } from '../request-param-errors';
-import { UserInfoResponse } from './../user/user-info';
+import { UserInfoSuccessResponse } from './../user/user-info';
 
 export interface AuthLoginRequest {
   email: string;
@@ -7,7 +7,7 @@ export interface AuthLoginRequest {
 }
 
 export type AuthLoginResponse =
-  | UserInfoResponse
+  | UserInfoSuccessResponse
   | ErrorResponse
   | BodyParamErrorResponse
   | GotExpectedBodyParamErrorResponse;

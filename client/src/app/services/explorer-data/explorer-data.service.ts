@@ -2,8 +2,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { HttpService } from '@services/http';
 import { FolderContentsResponse } from '@shared/interfaces/explorer-data/folder-contents';
-import { mapResource } from '@utils/map-resource';
-import { map } from 'rxjs';
+import { getSuccessRes } from '@utils/get-success';
 
 @Injectable({
   providedIn: 'root',
@@ -20,17 +19,7 @@ export class ExplorerDataService {
         .get<FolderContentsResponse>('/explorer-data/folder-contents', {
           params: { parentFolderId: request.folderId ?? '' },
         })
-        .pipe(
-          map(v => {
-            if (v?.success) {
-              console.log(v.lists[2]);
-              return mapResource(v)
-                ?.mapArray('lists', l => l.mapDate('date').return())
-                .return();
-            }
-            return null;
-          })
-        );
+        .pipe(getSuccessRes());
     },
   });
 

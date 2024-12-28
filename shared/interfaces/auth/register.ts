@@ -1,5 +1,5 @@
 import { BodyParamErrorResponse, ErrorResponse, GotExpectedBodyParamErrorResponse } from '../request-param-errors';
-import { PartialUserInfoResponse } from '../user/user-info';
+import { PartialUserInfoSuccessResponse } from '../user/user-info';
 import { AuthLoginRequest } from './login';
 
 export interface AuthRegisterStep1Request extends AuthLoginRequest {}
@@ -8,11 +8,11 @@ export interface AuthRegisterStep2Request {
 }
 
 export type AuthRegisterStep1Response =
-  | PartialUserInfoResponse
+  | PartialUserInfoSuccessResponse
   | BodyParamErrorResponse
   | GotExpectedBodyParamErrorResponse;
 export type AuthRegisterStep2Response =
-  | PartialUserInfoResponse
+  | PartialUserInfoSuccessResponse
   | BodyParamErrorResponse
   | GotExpectedBodyParamErrorResponse
   | ErrorResponse;

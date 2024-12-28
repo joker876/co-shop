@@ -1,8 +1,9 @@
 import { Folder } from '@shared/interfaces/folder/folder';
 import { RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
+import { Publicable } from 'src/interfaces/publicable';
 
-export class FolderRecord {
+export class FolderRecord implements Publicable<Folder> {
   readonly id!: number;
   readonly name!: string;
   readonly owner!: number;
