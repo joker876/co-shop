@@ -26,6 +26,14 @@ export class ListRecord implements Publicable<List> {
 }
 
 export class ListModel {
+  static async findById(id: number, userId: number): Promise<ListRecord | null> {
+    const res = await queryDb<RowDataPacket[]>('SELECT * FROM lists WHERE id = ? AND owner = ? LIMIT 1;', [id, userId]);
+    if (res.err) {
+      throw res.err;
+    }
+    return res.result.length === 0 ? null : new ListRecord(res.result[0]);
+  }
+
   static async getListsByParent(userId: number, parentId?: number | null): Promise<ListRecord[]> {
     const res = parentId
       ? await queryDb<RowDataPacket[]>('SELECT * FROM lists WHERE owner = ? AND parent_folder = ?;', [userId, parentId])

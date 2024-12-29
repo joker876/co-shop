@@ -16,6 +16,5 @@ export interface UserInfo {
   createdAt: Date;
 }
 export interface UserNotFoundErrorResponse extends ErrorResponse {
-  success: false;
   error: 'NOT_FOUND_ERR';
 }
