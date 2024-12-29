@@ -16,4 +16,9 @@ export class ExplorerItemComponent {
   readonly type = input.required<ExplorerItemType>();
 
   readonly deleteEvent = output<void>({ alias: 'delete' });
+
+  onDeleteClick(event: MouseEvent): void {
+    event.stopPropagation();
+    this.deleteEvent.emit();
+  }
 }

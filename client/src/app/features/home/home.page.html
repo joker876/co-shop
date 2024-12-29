@@ -15,5 +15,7 @@
     [type]="suggestedType()[0]"
     [lists]="explorerDataService.lists()"
     [folders]="explorerDataService.folders()"
+    (listClick)="onListClick($event)"
+    (listDelete)="onListDelete($event)"
   />
 </section>

@@ -9,7 +9,7 @@
     }
   } @else {
     @for (item of lists(); track item.id) {
-      <app-explorer-item [name]="item.name" [type]="type()">
+      <app-explorer-item [name]="item.name" [type]="type()" (click)="onListClick(item)" (delete)="onListDelete(item)">
         @if (item.shop) {
           {{ item.shop }}
         }
