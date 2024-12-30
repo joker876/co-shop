@@ -2,8 +2,10 @@ import { inject, Injectable } from '@angular/core';
 import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '@services/http';
-import { List } from '@shared/interfaces/list/list';
+import { ListSuccessResponse } from '@shared/interfaces/list/list';
+import { getSuccessRes } from '@utils/get-success';
 import { BehaviorSubject, map } from 'rxjs';
+import { SetCheckedRequest } from './../../../../../shared/interfaces/product/set-checked';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +24,29 @@ export class ListService {
         subject.complete();
         return subject.asObservable();
       }
-      return this.http.get<List>(`/list/${request.listId}`);
+      return this.http.get<ListSuccessResponse>(`/list/${request.listId}`).pipe(getSuccessRes());
     },
   });
+
+  toggleProductChecked(productId: number, forcedStatus?: boolean) {
+    const product = this.listData.value()?.products.find(p => p.id === productId);
+    if (!product) return;
+
+    const newStatus = forcedStatus ?? !product.checked;
+    const newProduct = { ...product, checked: newStatus };
+
+    this.listData.update(v => ({
+      ...v!,
+      products: v!.products.map(p => (p.id === productId ? newProduct : p)),
+    }));
+
+    this.http.post<SetCheckedRequest>('/product/set-checked', { productId, checked: newStatus }).subscribe({
+      error: () => {
+        this.listData.update(v => ({
+          ...v!,
+          products: v!.products.map(p => (p.id === productId ? product : p)),
+        }));
+      },
+    });
+  }
 }
