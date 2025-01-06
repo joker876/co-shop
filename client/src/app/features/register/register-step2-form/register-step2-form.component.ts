@@ -37,12 +37,11 @@ export class RegisterStep2FormComponent {
       restoreDisabledStates(this.form, disabledStates);
       return;
     }
-    alert('name accepted!');
   }
   onMoreInfoClick() {
     //TODO make a better modal here
     alert(
-      "We will only show your name to the people you share folders or lists with. No one else.\n\nIt doesn't have to be your real name. It can really be whatever you would like to be called."
+      $localize`:@@register.who-will-see-my-name-content:We will only show your name to the people you share folders or lists with. No one else.\n\nIt doesn't have to be your real name. It can really be whatever you would like to be called.`
     );
   }
 }

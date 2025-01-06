@@ -28,6 +28,15 @@
       },
       "root": "",
       "sourceRoot": "src",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "pl": {
+            "translation": "src/locale/pl-PL.xlf",
+            "baseHref": "pl"
+          }
+        }
+      },
       "prefix": "app",
       "architect": {
         "build": {
@@ -36,9 +45,8 @@
             "outputPath": "dist/client",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "localize": true,
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -47,9 +55,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -66,7 +72,8 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "localize": ["pl"]
             },
             "development": {
               "optimization": false,
@@ -78,6 +85,18 @@
                   "with": "src/app/environments/environment.development.ts"
                 }
               ]
+            },
+            "pl": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/environments/environment.ts",
+                  "with": "src/app/environments/environment.development.ts"
+                }
+              ],
+              "localize": ["pl"]
             }
           },
           "defaultConfiguration": "production"
@@ -90,6 +109,9 @@
             },
             "development": {
               "buildTarget": "client:build:development"
+            },
+            "pl": {
+              "buildTarget": "client:build:development,pl"
             }
           },
           "defaultConfiguration": "development"
@@ -100,10 +122,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -112,9 +131,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }

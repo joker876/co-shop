@@ -2,36 +2,45 @@
   <ard-card>
     <ard-card-header>
       <div class="header-container">
-        <ard-card-title>Start your journey!</ard-card-title>
+        <ard-card-title i18n="@@register.step1.welcome">Start your journey!</ard-card-title>
         <img src="logo.svg" alt="logo" />
       </div>
     </ard-card-header>
     <ard-card-content>
-      <label for="email">E-mail</label>
+      <label for="email" i18n="@@common.email">E-mail</label>
       <ard-simple-input
         formControlName="email"
         inputId="email"
+        i18n-placeholder="@@register.email-placeholder"
         placeholder="you@example.com"
         [inputAttrs]="{ autocomplete: 'email' }"
       />
-      <label for="email">Password</label>
+      <label for="email" i18n="@@common.password">Password</label>
       <ard-password-input
         formControlName="password"
         inputId="password"
+        i18n-placeholder="@@register.password-placeholder"
         placeholder="Enter 8 characters or more"
         [inputAttrs]="{ autocomplete: 'new-password' }"
       />
     </ard-card-content>
     <ard-card-action-buttons>
       <div class="button-container">
-        <ard-button appearance="raised-strong" type="submit" [disabled]="authService.isRegisterPending()">
-          Sign Up
-        </ard-button>
+        <ard-button
+          appearance="raised-strong"
+          type="submit"
+          [disabled]="authService.isRegisterPending()"
+          i18n="@@common.sign-up"
+          >Sign Up</ard-button
+        >
         @if (authService.isRegisterPending()) {
           <ard-spinner />
         }
       </div>
-      <p>Already have an account? <a href="/login">Log In</a></p>
+      <p>
+        <ng-container i18n="@@register.log-in-text">Already have an account?</ng-container>
+        <a href="/login" i18n="@@common.log-in">Log In</a>
+      </p>
     </ard-card-action-buttons>
   </ard-card>
 </form>

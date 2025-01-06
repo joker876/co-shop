@@ -13,8 +13,8 @@ import { ExplorerListComponent } from '../../components/explorer-list/explorer-l
 })
 export class HomePage {
   readonly suggestedOptions = [
-    { value: ExplorerItemType.List, label: 'Lists', icon: 'list-alt' },
-    { value: ExplorerItemType.Folder, label: 'Folders', icon: 'folder' },
+    { value: ExplorerItemType.List, label: $localize`:@@home.filter.options.lists:Lists`, icon: 'list-alt' },
+    { value: ExplorerItemType.Folder, label: $localize`:@@home.filter.options.folders:Folders`, icon: 'folder' },
   ];
   readonly suggestedType = signal<[ExplorerItemType]>([ExplorerItemType.List]);
 

@@ -2,28 +2,29 @@
   <ard-card>
     <ard-card-header>
       <div class="header-container">
-        <ard-card-title>What should we call you?</ard-card-title>
-        <ard-card-subtitle>We will use this name to introduce you to your friends.</ard-card-subtitle>
+        <ard-card-title i18n="@@register.step2.welcome">What should we call you?</ard-card-title>
+        <ard-card-subtitle i18n="@@register.step2.welcome-subtitle">We will use this name to introduce you to your friends.</ard-card-subtitle>
       </div>
     </ard-card-header>
     <ard-card-content>
       <ard-simple-input
         formControlName="username"
         inputId="username"
+        i18n-placeholder="@@register.name-placeholder"
         placeholder="Your name"
         [inputAttrs]="{ autocomplete: 'name', 'aria-label': 'Your name' }"
       />
     </ard-card-content>
     <ard-card-action-buttons>
       <div class="button-container">
-        <ard-button appearance="raised-strong" type="submit" [disabled]="authService.isRegisterPending()">
+        <ard-button appearance="raised-strong" type="submit" [disabled]="authService.isRegisterPending()" i18n="@@common.accept">
           Accept
         </ard-button>
         @if (authService.isRegisterPending()) {
           <ard-spinner />
         }
       </div>
-      <p><a (click)="onMoreInfoClick()">Who will see my name?</a></p>
+      <p><a (click)="onMoreInfoClick()" i18n="@@register.who-will-see-my-name">Who will see my name?</a></p>
     </ard-card-action-buttons>
   </ard-card>
 </form>

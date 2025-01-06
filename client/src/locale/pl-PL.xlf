@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="home.welcome" datatype="html">
+        <source>Welcome to CoShop</source>
+        <target>Witamy w CoShop</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.page.html</context>
+          <context context-type="linenumber">1,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.filter.suggested" datatype="html">
+        <source>Suggested</source>
+        <target>Sugerowane</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.page.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.filter.options.lists" datatype="html">
+        <source>Lists</source>
+        <target>Listy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.page.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.filter.options.folders" datatype="html">
+        <source>Folders</source>
+        <target>Foldery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.page.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.welcome" datatype="html">
+        <source>Welcome back!</source>
+        <target>Witamy ponownie!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.email" datatype="html">
+        <source>E-mail</source>
+        <target>E-mail</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.email-placeholder" datatype="html">
+        <source>you@example.com</source>
+        <target>you@example.com</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.password" datatype="html">
+        <source>Password</source>
+        <target>Hasło</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.password-placeholder" datatype="html">
+        <source>Enter 8 characters or more</source>
+        <target>Wpisz 8 lub więcej znaków</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.log-in" datatype="html">
+        <source>Log In</source>
+        <target>Zaloguj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.sign-up-text" datatype="html">
+        <source>Don't have an account?</source>
+        <target>Nie masz konta?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.sign-up" datatype="html">
+        <source>Sign Up</source>
+        <target state="needs-translation">Rejestracja</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">35,37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">34,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.background-img-alt" datatype="html">
+        <source>Man using his phone to put things into a shopping cart</source>
+        <target>Mężczyzna wkładający przedmioty do wózka sklepowego z pomocą telefonu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.page.html</context>
+          <context context-type="linenumber">46,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.step1.welcome" datatype="html">
+        <source>Start your journey!</source>
+        <target state="needs-translation">Zacznij przygodę!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.email-placeholder" datatype="html">
+        <source>you@example.com</source>
+        <target state="needs-translation">you@example.com</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.password-placeholder" datatype="html">
+        <source>Enter 8 characters or more</source>
+        <target state="needs-translation">Wpisz 8 lub więcej znaków</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.log-in-text" datatype="html">
+        <source>Already have an account?</source>
+        <target state="needs-translation">Masz już konto?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.step2.welcome" datatype="html">
+        <source>What should we call you?</source>
+        <target state="needs-translation">Jak powinniśmy Cię nazywać?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.step2.welcome-subtitle" datatype="html">
+        <source>We will use this name to introduce you to your friends.</source>
+        <target state="needs-translation">Użyjemy tej nazwy, aby przedstawić Cię Twoim znajomym.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.name-placeholder" datatype="html">
+        <source>Your name</source>
+        <target state="needs-translation">Twoje imię</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.accept" datatype="html">
+        <source> Accept </source>
+        <target state="needs-translation">Akceptuj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.who-will-see-my-name" datatype="html">
+        <source>Who will see my name?</source>
+        <target state="needs-translation">Kto zobaczy moje imię?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="linenumber">27,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.who-will-see-my-name-content" datatype="html">
+        <source>We will only show your name to the people you share folders or lists with. No one else.
+
+It doesn't have to be your real name. It can really be whatever you would like to be called.</source>
+        <target state="needs-translation">Pokażemy twoje imię jedynie osobom, z którymi współdzielisz folder lub listę. Nikomu innemu.
+        
+Nie musi to być Twoje prawdziwe imię. Może to być w zasadzie jakakolwiek nazwa, jaka Ci się zamarzy.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.background-img-alt" datatype="html">
+        <source>Man using his phone to put things into a shopping cart</source>
+        <target>Mężczyzna wkładający przedmioty do wózka sklepowego z pomocą telefonu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/register/register.page.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

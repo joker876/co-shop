@@ -4,34 +4,46 @@
       <ard-card>
         <ard-card-header>
           <div class="header-container">
-            <ard-card-title>Welcome back!</ard-card-title>
+            <ard-card-title i18n="@@login.welcome">Welcome back!</ard-card-title>
             <img src="logo.svg" alt="logo" />
           </div>
         </ard-card-header>
         <ard-card-content>
-          <label for="email">E-mail</label>
+          <label for="email" i18n="@@common.email">E-mail</label>
           <ard-simple-input
             formControlName="email"
             inputId="email"
+            i18n-placeholder="@@login.email-placeholder"
             placeholder="you@example.com"
             [inputAttrs]="{ autocomplete: 'email' }"
           />
-          <label for="password">Password</label>
+          <label for="password" i18n="@@common.password">Password</label>
           <ard-password-input
             formControlName="password"
             inputId="password"
+            i18n-placeholder="@@login.password-placeholder"
             placeholder="Enter 8 characters or more"
             [inputAttrs]="{ autocomplete: 'current-password' }"
           />
         </ard-card-content>
         <ard-card-action-buttons>
-          <ard-button appearance="raised-strong" type="submit"> Log in </ard-button>
-          <p>Don't have an account? <a href="/register">Sign Up</a></p>
+          <ard-button appearance="raised-strong" type="submit" i18n="@@common.log-in">Log In</ard-button>
+          <p>
+            <ng-container i18n="@@login.sign-up-text">Don't have an account?</ng-container>&nbsp;<a
+              href="/register"
+              i18n="@@common.sign-up"
+              >Sign Up</a
+            >
+          </p>
         </ard-card-action-buttons>
       </ard-card>
     </form>
   </main>
   <aside>
-    <img src="shopping-cart.svg" alt="Man using his phone to put things into a shopping cart" />
+    <img
+      src="shopping-cart.svg"
+      i18n-alt="@@login.background-img-alt"
+      alt="Man using his phone to put things into a shopping cart"
+    />
   </aside>
 </div>
