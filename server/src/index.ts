@@ -26,13 +26,27 @@ const sessionStore = new MySQLStore({
 });
 
 const PORT = process.env.PORT ?? 8080;
+const IPV4 = process.env.IPV4 ?? '0.0.0.0';
+const ENVIRONMENT = process.env.ENVIRONMENT ?? 'production';
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: process.env.APP_URL }));
+if (ENVIRONMENT === 'production') {
+  app.use(cors({ credentials: true, origin: process.env.APP_URL }));
+} else {
+  app.use(
+    cors({
+      origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        callback(null, true);
+      },
+      credentials: true,
+    })
+  );
+}
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -56,9 +70,7 @@ app.get('/', (req, res) => {
 });
 
 console.log(`Starting server...`);
-app.listen(PORT, () => {
-  console.log(`${OK_STR}Running on port ${ansis.greenBright.underline(String(PORT))}!`);
-
+app.listen(Number(PORT), IPV4, () => {
   try {
     const conn = connectToDb();
     console.log(`${OK_STR}Connected to database!`);
@@ -66,6 +78,8 @@ app.listen(PORT, () => {
   } catch (err) {
     throw err;
   }
+
+  console.log(`${OK_STR}Server accessible on ${ansis.greenBright.underline(IPV4 + ':' + String(PORT))}!`);
 });
 
 passport.serializeUser((userId, done) => done(null, userId));

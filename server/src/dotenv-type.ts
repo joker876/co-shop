@@ -9,6 +9,7 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       readonly PORT: string;
+      readonly IPV4: string;
       readonly ENVIRONMENT: EnvironmentType;
       readonly APP_URL: string;
 

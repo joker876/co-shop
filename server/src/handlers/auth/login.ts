@@ -7,6 +7,7 @@ import { compareSync } from 'bcrypt';
 import { RequestHandler } from 'express';
 
 export const loginHandler: RequestHandler<null, AuthLoginResponse, AuthLoginRequest> = async (req, res) => {
+  console.log(req.body);
   // validate all required args exist
   if (
     new Assert(res, req.body, 'email').exists().isString().minLength(MIN_EMAIL_LENGTH).maxLength(MAX_EMAIL_LENGTH)

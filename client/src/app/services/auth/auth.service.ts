@@ -1,7 +1,12 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpService } from '@services/http';
 import { AuthLoginRequest, AuthLoginResponse } from '@shared/interfaces/auth/login';
-import { AuthRegisterStep1Request, AuthRegisterStep1Response, AuthRegisterStep2Request, AuthRegisterStep2Response } from '@shared/interfaces/auth/register';
+import {
+  AuthRegisterStep1Request,
+  AuthRegisterStep1Response,
+  AuthRegisterStep2Request,
+  AuthRegisterStep2Response,
+} from '@shared/interfaces/auth/register';
 import { UserInfo } from '@shared/interfaces/user/user-info';
 import { catchError, retry, Subject, takeUntil } from 'rxjs';
 import { isDefined } from 'simple-bool';
@@ -98,32 +103,30 @@ export class AuthService {
     });
   }
   executeLogin(data: AuthLoginRequest): Promise<{ isOk: boolean; hasNameSet?: boolean }> {
-    return new Promise<{ isOk: boolean; hasNameSet?: boolean }>(resolve => {
+    return new Promise(resolve => {
       if (this.isLoginPending()) return resolve({ isOk: true });
 
       this._isLoginPending.set(true);
-      const sub = this.http
+      this.http
         .post<AuthLoginRequest, AuthLoginResponse>('auth/login', data, {})
-        .pipe(
-          takeUntil(this.destroy$),
-          retry(0),
-          catchError((err, caught) => {
+        .pipe(takeUntil(this.destroy$), retry(0))
+        .subscribe({
+          error: err => {
             this._isLoginPending.set(false);
             this._loginErrorResponse.set(err.error);
-            console.log(err.error, caught);
-            sub.unsubscribe();
-            resolve({ isOk: false });
-            return caught;
-          })
-        )
-        .subscribe(res => {
-          console.log(res);
-          this._isLoginPending.set(false);
 
-          if (res.success) {
-            this._userInfo.set(res.user as UserInfo);
-            resolve({ isOk: true, hasNameSet: !!res.user.username });
-          }
+            console.log(err.error);
+            resolve({ isOk: false });
+          },
+          next: res => {
+            console.log(res);
+            this._isLoginPending.set(false);
+
+            if (res.success) {
+              this._userInfo.set(res.user as UserInfo);
+              resolve({ isOk: true, hasNameSet: !!res.user.username });
+            }
+          },
         });
     });
   }
