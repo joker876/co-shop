@@ -27,33 +27,19 @@ const sessionStore = new MySQLStore({
 
 const PORT = process.env.PORT ?? 8080;
 const IPV4 = process.env.IPV4 ?? '0.0.0.0';
-const ENVIRONMENT = process.env.ENVIRONMENT ?? 'production';
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-if (ENVIRONMENT === 'production') {
-  app.use(cors({ credentials: true, origin: process.env.APP_URL }));
-} else {
-  app.use(
-    cors({
-      origin: function (origin, callback) {
-        if (!origin) return callback(null, true);
-        callback(null, true);
-      },
-      credentials: true,
-    })
-  );
-}
+app.use(cors({ credentials: true, origin: [process.env.APP_URL, 'http://localhost:6021'] }));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     store: sessionStore,
     saveUninitialized: false,
-
     cookie: {
       maxAge: Number(process.env.SESSION_LENGTH) || 24 * 60 * 60 * 1000, // 1 day
     },
