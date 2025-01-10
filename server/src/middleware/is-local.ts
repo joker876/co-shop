@@ -14,7 +14,7 @@ export const isLocalhostMiddleware = (req: Request, _: Response, next: NextFunct
     next();
     return;
   }
-  const isLocalhost = req.ip === '127.0.0.1' || req.ip === '::1';
+  const isLocalhost = req.ip === '127.0.0.1' || req.ip === '::1' || req.ip === process.env.IPV4;
   req.isLocalhost = isLocalhost;
   next();
 };

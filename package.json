@@ -17,8 +17,5 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "prettier": "^3.2.5"
-  },
-  "dependencies": {
-    "@ardium-ui/ui": "3.0.0"
   }
 }

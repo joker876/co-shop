@@ -1,1 +1,20 @@
-<app-back-button /> <!-- TODO breadcrumbs will be here -->
+<!-- TODO breadcrumbs will be here -->
+<div class="name-container">
+  <div class="btn-container">
+    <app-back-button (click)="navigateToExplorer()" />
+  </div>
+  <div class="name">
+    <h1>{{ listData.value()?.list?.name }}</h1>
+  </div>
+  <div class="btn-container">
+    <ard-icon-button color="none" class="more-actions-btn">
+      <ard-icon>more_vert</ard-icon>
+    </ard-icon-button>
+  </div>
+</div>
+
+@if (listData.value()?.list?.shop || listData.value()?.list?.date) {
+<p class="additional-info-line">
+  <app-bullet-separated-list [values]="[listData.value()?.list?.shop, listData.value()?.list?.date | smartDate]" />
+</p>
+}

@@ -10,15 +10,7 @@
   } @else {
     @for (item of lists(); track item.id) {
       <app-explorer-item [name]="item.name" [type]="type()" (click)="onListClick(item)" (delete)="onListDelete(item)">
-        @if (item.shop) {
-          {{ item.shop }}
-        }
-        @if (item.shop && item.date) {
-          <span class="separator">•</span>
-        }
-        @if (item.date) {
-          {{ item.date | smartDate }}
-        }
+        <app-bullet-separated-list [values]="[item.shop, item.date | smartDate]" />
       </app-explorer-item>
     } @empty {
       <div class="empty-text">

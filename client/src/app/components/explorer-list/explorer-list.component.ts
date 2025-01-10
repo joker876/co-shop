@@ -1,13 +1,15 @@
 import { Component, computed, input, output } from '@angular/core';
+import { ArdiumTextListModule } from '@ardium-ui/ui';
 import { Folder } from '@shared/interfaces/folder/folder';
 import { List } from '@shared/interfaces/list/list';
 import { ExplorerItemType } from '@typings';
 import { SmartDatePipe } from 'src/app/pipes/smart-date';
+import { BulletSeparatedList } from '../bullet-separated-list';
 import { ExplorerItemComponent } from './explorer-item/explorer-item.component';
 
 @Component({
   selector: 'app-explorer-list',
-  imports: [ExplorerItemComponent, SmartDatePipe],
+  imports: [ExplorerItemComponent, SmartDatePipe, ArdiumTextListModule, BulletSeparatedList],
   templateUrl: './explorer-list.component.html',
   styleUrl: './explorer-list.component.scss',
 })

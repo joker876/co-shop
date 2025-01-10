@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { HttpService } from '@services/http';
 import { UserInfoResponse } from '@shared/interfaces/user/user-info';
@@ -21,4 +21,6 @@ export class UserService {
   });
 
   readonly myself = this._myself.asReadonly();
+
+  readonly isAuthenticated = computed(() => !this._myself.error());
 }

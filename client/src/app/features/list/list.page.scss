@@ -1,0 +1,27 @@
+.name-container {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.name {
+  text-align: center;
+
+  > h1 {
+    font-size: 1.75rem;
+  }
+}
+
+.btn-container {
+  aspect-ratio: 1;
+}
+
+.more-actions-btn {
+  font-size: 1.25rem;
+}
+
+.additional-info-line {
+  font-size: 1.125rem;
+  text-align: center;
+}
