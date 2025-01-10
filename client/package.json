@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port=6021 --host=0.0.0.0 --configuration=pl",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "start": "cd ../ && npm run generate-ip && ng serve --port=6021 --host=0.0.0.0 --configuration=pl",
+    "build": "cd ../ && npm run generate-ip && ng build",
+    "watch": "cd ../ && npm run generate-ip && ng build --watch --configuration development",
     "test": "ng test",
     "ngg-page": "ng g c --type=page",
-    "e-i18n": "ng extract-i18n --output-path src/locale --out-file=en-US.g.xlf"
+    "e-i18n": "ng extract-i18n --output-path src/locale --out-file=en-US.g.xlf",
+    "prestart": "cd ../ && npm run generate-ip",
+    "postinstall": "cd ../ && npm run generate-ip"
   },
   "private": true,
   "dependencies": {

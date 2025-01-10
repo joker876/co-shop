@@ -10,6 +10,8 @@
 @use '../node_modules/@ardium-ui/ui/themes/default/inputs/password-input.scss';
 @use '../node_modules/@ardium-ui/ui/themes/default/segment.scss';
 
+@import 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
+
 *,
 *::before,
 *::after {
@@ -69,4 +71,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.hidden {
+  display: none !important;
 }

@@ -1,17 +1,17 @@
 @use '../../../../variables.scss' as *;
 
 :host {
-  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
 
-  &:last-child {
-    border-bottom: 1px solid $border;
+  &:first-child {
+    border-top: 1px solid $border;
   }
   button {
     width: 100%;
     padding: 0 1rem;
-    display: grid;
-    grid-template-columns: max-content 1fr max-content;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.5rem;
     background: none;
     border: none;
@@ -21,25 +21,37 @@
     max-height: 3rem;
     color: $text4;
 
-    .name-container {
-      gap: 0.875rem;
-      width: 100%;
-      padding-left: 0.75rem;
+    .info-container {
       display: grid;
-      grid-template-columns: max-content minmax(max-content, 30ch);
+      align-items: center;
+      grid-template-columns: max-content 1fr;
+      gap: 1rem;
+    }
+    .name-container {
+      width: 100%;
+      display: grid;
+      gap: 0.25rem 0.875rem;
+      grid-template-columns: 1fr;
+      
+      @media only screen and (min-width: 600px) {
+        grid-template-columns: 1fr minmax(max-content, 30ch);
+      }
 
       .name {
         font-size: 0.8125rem;
         font-weight: 500;
         color: $text;
-        max-width: 40ch;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        width: max-content;
+        max-width: min(40ch, 100%);
       }
       .additional-info {
         font-size: 0.75rem;
         color: $text3;
+        width: max-content;
+        max-width: 30ch;
       }
     }
     &:hover {

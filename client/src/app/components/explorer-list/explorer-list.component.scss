@@ -1,9 +1,9 @@
 @use '../../../variables.scss' as *;
 
 .lists-container {
-  display: grid;
   padding-top: 0.5rem;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .empty-text {

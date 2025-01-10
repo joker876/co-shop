@@ -1,16 +1,45 @@
+@use '../../../variables' as *;
+
 .name-container {
+  position: sticky;
+  left: 0;
+  padding: 0;
+  top: 0;
   display: grid;
   grid-template-columns: max-content 1fr max-content;
   gap: 0.5rem;
-  padding-bottom: 0.75rem;
+
+  @media only screen and (min-width: 600px) {
+    gap: 1rem;
+  }
 }
 
+.name-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .name {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   > h1 {
-    font-size: 1.75rem;
+    font-size: 1.375rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &.font-small {
+      font-size: 1.1875rem;
+    }
   }
+}
+
+.additional-info-line {
+  color: $text3;
 }
 
 .btn-container {
@@ -19,9 +48,4 @@
 
 .more-actions-btn {
   font-size: 1.25rem;
-}
-
-.additional-info-line {
-  font-size: 1.125rem;
-  text-align: center;
 }

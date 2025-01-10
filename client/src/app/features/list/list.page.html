@@ -3,8 +3,16 @@
   <div class="btn-container">
     <app-back-button (click)="navigateToExplorer()" />
   </div>
-  <div class="name">
-    <h1>{{ listData.value()?.list?.name }}</h1>
+  <div class="name-wrapper">
+    <div class="name">
+      <h1 [class.font-small]="list() && list()!.name.length > 24">{{ list()?.name }}</h1>
+    </div>
+
+    @if (list()?.shop || list()?.date) {
+    <p class="additional-info-line">
+      <app-bullet-separated-list [values]="[list()?.shop, list()?.date | smartDate]" />
+    </p>
+    }
   </div>
   <div class="btn-container">
     <ard-icon-button color="none" class="more-actions-btn">
@@ -12,9 +20,3 @@
     </ard-icon-button>
   </div>
 </div>
-
-@if (listData.value()?.list?.shop || listData.value()?.list?.date) {
-<p class="additional-info-line">
-  <app-bullet-separated-list [values]="[listData.value()?.list?.shop, listData.value()?.list?.date | smartDate]" />
-</p>
-}

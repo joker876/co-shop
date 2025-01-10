@@ -4,7 +4,7 @@
       <app-explorer-item [name]="item.name" [type]="type()" />
     } @empty {
       <div class="empty-text">
-        <p>No folders found</p>
+        <p i18n="@@home.explorer.no-folders">No folders found</p>
       </div>
     }
   } @else {
@@ -14,8 +14,10 @@
       </app-explorer-item>
     } @empty {
       <div class="empty-text">
-        <p>No lists found</p>
+        <p i18n="@@home.explorer.no-lists">No lists found</p>
       </div>
     }
   }
+  <!-- to prevent component stylesheet from unloading when switching between types -->
+  <app-explorer-item name="" type="list-alt" style="display: none" />
 </div>

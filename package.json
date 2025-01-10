@@ -4,13 +4,12 @@
   "description": "",
   "author": "",
   "scripts": {
-    "start": "node server/index.js",
     "build": "cd client && npm install && npm run build && cd ../server && npm install",
     "watch": "cd client && npm run watch",
     "server": "cd server && npm run dev",
-    "both": "concurrently --kill-others \"npm run watch\" \"npm run server\"",
     "front": "cd client && ng serve",
     "prettier": "prettier --write .",
+    "generate-ip": "node scripts/ip-generator/index.js",
     "install-all": "npm install && cd client && npm install && cd ../server && npm install"
   },
   "license": "MIT",

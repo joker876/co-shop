@@ -2,7 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } fr
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { smartDeserialize } from './deserializer-utils';
+import { smartDeserialize } from '../utils/deserializer-utils';
 
 @Injectable()
 export class DeserializationInterceptor implements HttpInterceptor {

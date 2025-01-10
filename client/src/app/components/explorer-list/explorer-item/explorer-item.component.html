@@ -1,13 +1,15 @@
 <button>
-  <div class="icon-container">
-    <ard-icon [icon]="type()" [class.is-folder]="type() === 'folder'" filled />
-  </div>
-  <div class="name-container">
-    <div class="name">
-      {{ name() }}
+  <div class="info-container">
+    <div class="icon-container">
+      <ard-icon [icon]="type()" [class.is-folder]="type() === 'folder'" filled />
     </div>
-    <div class="additional-info">
-      <ng-content />
+    <div class="name-container">
+      <div class="name">
+        {{ name() }}
+      </div>
+      <div class="additional-info">
+        <ng-content />
+      </div>
     </div>
   </div>
   <ard-icon-button color="danger" (click)="onDeleteClick($event)">

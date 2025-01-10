@@ -2,6 +2,20 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="home.explorer.no-folders" datatype="html">
+        <source>No folders found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/explorer-list/explorer-list.component.html</context>
+          <context context-type="linenumber">7,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.explorer.no-lists" datatype="html">
+        <source>No lists found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/explorer-list/explorer-list.component.html</context>
+          <context context-type="linenumber">18,22</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="home.welcome" datatype="html">
         <source>Welcome to CoShop</source>
         <context-group purpose="location">

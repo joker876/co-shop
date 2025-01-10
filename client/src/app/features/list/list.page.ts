@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArdiumIconButtonModule, ArdiumIconModule } from '@ardium-ui/ui';
 import { ListService } from '@services/list/list.service';
@@ -18,6 +18,7 @@ export class ListPage {
   private readonly _router = inject(Router);
 
   readonly listData = this._listService.listData;
+  readonly list = computed(() => this.listData.value()?.list);
 
   navigateToExplorer() {
     this._router.navigate(['/']);
