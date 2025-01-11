@@ -5,10 +5,19 @@ import { ListService } from '@services/list/list.service';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { BulletSeparatedList } from 'src/app/components/bullet-separated-list';
 import { SmartDatePipe } from 'src/app/pipes/smart-date';
+import { ProductListComponent } from '../../components/product-list/product-list.component';
 
 @Component({
   selector: 'app-list',
-  imports: [BackButtonComponent, ArdiumIconButtonModule, ArdiumIconModule, BulletSeparatedList, SmartDatePipe],
+  imports: [
+    BackButtonComponent,
+    ArdiumIconButtonModule,
+    ArdiumIconModule,
+    BulletSeparatedList,
+    SmartDatePipe,
+    ProductListComponent,
+    ProductListComponent,
+  ],
   providers: [ListService],
   templateUrl: './list.page.html',
   styleUrl: './list.page.scss',

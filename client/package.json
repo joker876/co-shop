@@ -26,6 +26,7 @@
     "@angular/router": "^19.0.5",
     "@ardium-ui/devkit": "^2.8.0",
     "@ardium-ui/ui": "3.2.4",
+    "more-rounding": "^4.2.2",
     "resolve-object-path": "^2.0.0",
     "rxjs": "~7.8.0",
     "simple-bool": "^4.1.0",

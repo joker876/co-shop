@@ -9,6 +9,7 @@
 @use '../node_modules/@ardium-ui/ui/themes/default/inputs/simple-input.scss';
 @use '../node_modules/@ardium-ui/ui/themes/default/inputs/password-input.scss';
 @use '../node_modules/@ardium-ui/ui/themes/default/segment.scss';
+@use '../node_modules/@ardium-ui/ui/themes/default/checkbox.scss';
 
 @import 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
 
@@ -74,4 +75,11 @@ body {
 }
 .hidden {
   display: none !important;
+}
+.icon-outlined {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

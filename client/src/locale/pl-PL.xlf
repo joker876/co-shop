@@ -6,18 +6,16 @@
         <source>No folders found</source>
         <target>Nie znaleziono folderów</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/components/explorer-list/explorer-list.component.html</context>
-          <context context-type="linenumber">7,11</context>
+          <context context-type="sourcefile">src/app/components/explorer-list/explorer-list.component.html</context>
+          <context context-type="linenumber">7,10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.explorer.no-lists" datatype="html">
         <source>No lists found</source>
         <target>Nie znaleziono list</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/components/explorer-list/explorer-list.component.html</context>
-          <context context-type="linenumber">18,22</context>
+          <context context-type="sourcefile">src/app/components/explorer-list/explorer-list.component.html</context>
+          <context context-type="linenumber">17,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.welcome" datatype="html">
@@ -68,8 +66,7 @@
           <context context-type="linenumber">12,13</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">10,11</context>
         </context-group>
       </trans-unit>
@@ -89,8 +86,7 @@
           <context context-type="linenumber">20,21</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
@@ -110,8 +106,7 @@
           <context context-type="linenumber">30,31</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">42,44</context>
         </context-group>
       </trans-unit>
@@ -131,8 +126,7 @@
           <context context-type="linenumber">35,37</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">34,36</context>
         </context-group>
       </trans-unit>
@@ -148,8 +142,7 @@
         <source>Start your journey!</source>
         <target>Zacznij przygodę!</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">5,6</context>
         </context-group>
       </trans-unit>
@@ -157,8 +150,7 @@
         <source>you@example.com</source>
         <target>you@example.com</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">15,16</context>
         </context-group>
       </trans-unit>
@@ -166,8 +158,7 @@
         <source>Enter 8 characters or more</source>
         <target>Wpisz 8 lub więcej znaków</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
@@ -175,8 +166,7 @@
         <source>Already have an account?</source>
         <target>Masz już konto?</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step1-form/register-step1-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step1-form/register-step1-form.component.html</context>
           <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
@@ -184,8 +174,7 @@
         <source>What should we call you?</source>
         <target>Jak powinniśmy Cię nazywać?</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
           <context context-type="linenumber">5,6</context>
         </context-group>
       </trans-unit>
@@ -193,8 +182,7 @@
         <source>We will use this name to introduce you to your friends.</source>
         <target>Użyjemy tej nazwy, aby przedstawić Cię Twoim znajomym.</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
           <context context-type="linenumber">6,8</context>
         </context-group>
       </trans-unit>
@@ -202,8 +190,7 @@
         <source>Your name</source>
         <target>Twoje imię</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
           <context context-type="linenumber">14,15</context>
         </context-group>
       </trans-unit>
@@ -211,8 +198,7 @@
         <source> Accept </source>
         <target>Akceptuj</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
           <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
@@ -220,28 +206,22 @@
         <source>Who will see my name?</source>
         <target>Kto zobaczy moje imię?</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step2-form/register-step2-form.component.html</context>
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.html</context>
           <context context-type="linenumber">27,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.who-will-see-my-name-content" datatype="html">
-        <source>We will only show your name to the people you share folders or lists with. No one
-          else.
+        <source>We will only show your name to the people you share folders or lists with. No one else.
 
-          It doesn't have to be your real name. It can really be whatever you would like to be
-          called.</source>
+It doesn't have to be your real name. It can really be whatever you would like to be called.</source>
         <target state="needs-adaptation">Pokażemy twoje imię jedynie osobom, z którymi współdzielisz
           folder lub listę. Nikomu
           innemu.
 
           Nie musi to być Twoje prawdziwe imię. Może to w zasadzie być dowolna nazwa, jaka tylko Ci
           się zamarzy.</target>
-        <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please
-          review the translation.</note>
         <context-group purpose="location">
-          <context context-type="sourcefile">
-            src/app/features/register/register-step2-form/register-step2-form.component.ts</context>
+          <context context-type="sourcefile">src/app/features/register/register-step2-form/register-step2-form.component.ts</context>
           <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
@@ -253,12 +233,188 @@
           <context context-type="linenumber">3,6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="product.unit.singular.pc" datatype="html">
+        <source>pc.</source>
+        <target>szt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.box" datatype="html">
+        <source>box</source>
+        <target>op.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.kg" datatype="html">
+        <source>kg</source>
+        <target>kg</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.dag" datatype="html">
+        <source>dag</source>
+        <target>dag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.g" datatype="html">
+        <source>g</source>
+        <target>g</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.lb" datatype="html">
+        <source>lb</source>
+        <target>lb</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.oz" datatype="html">
+        <source>oz</source>
+        <target>oz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.l" datatype="html">
+        <source>l</source>
+        <target>l</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.ml" datatype="html">
+        <source>ml</source>
+        <target>ml</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.floz" datatype="html">
+        <source>fl oz</source>
+        <target>fl oz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.gal" datatype="html">
+        <source>gal</source>
+        <target>gal.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.pc" datatype="html">
+        <source>pcs</source>
+        <target>szt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.box" datatype="html">
+        <source>boxes</source>
+        <target>op.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.kg" datatype="html">
+        <source>kg</source>
+        <target>kg</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.dag" datatype="html">
+        <source>dag</source>
+        <target>dag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.g" datatype="html">
+        <source>g</source>
+        <target>g</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.lb" datatype="html">
+        <source>lbs</source>
+        <target>lbs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.oz" datatype="html">
+        <source>oz</source>
+        <target>oz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.l" datatype="html">
+        <source>l</source>
+        <target>l</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.ml" datatype="html">
+        <source>ml</source>
+        <target>ml</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.floz" datatype="html">
+        <source>fl oz</source>
+        <target>fl oz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.gal" datatype="html">
+        <source>gal</source>
+        <target>gal.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="smart-date-format.short" datatype="html">
         <source>MMM d</source>
         <target>d MMM</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipes/smart-date/smart-date.pipe.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="smart-date-format.full" datatype="html">
@@ -266,7 +422,7 @@
         <target>d MMM yyyy</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipes/smart-date/smart-date.pipe.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
     </body>

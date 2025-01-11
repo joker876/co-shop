@@ -1,0 +1,37 @@
+@use '../../../../../variables' as *;
+
+:host,
+div {
+  display: block;
+  height: 1.75em;
+  width: 1.75em;
+  border-radius: 0.375em;
+}
+
+div {
+  border: 0.0625em;
+  border: 0.125em solid currentColor;
+  position: relative;
+  background-color: transparent;
+  color: $text3;
+  font-size: inherit;
+
+  .icon {
+    stroke-width: 2.5;
+    stroke-dasharray: 33;
+  }
+  &.checked {
+    .icon {
+      animation: animate-check 0.2s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes animate-check {
+  from {
+    stroke-dashoffset: 33;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

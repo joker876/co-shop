@@ -1,15 +1,19 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { queryDb } from 'src/db';
-import { Product } from './../../../shared/interfaces/product/product';
+import { Product, ProductUnit } from './../../../shared/interfaces/product/product';
 
 export class ProductRecord {
   public readonly id!: number;
   public readonly name!: string;
   public readonly checked!: boolean;
   public readonly listId!: number;
+  public readonly amount!: number;
+  public readonly unit!: ProductUnit;
 
   constructor(data: RowDataPacket) {
     Object.assign(this, data);
+
+    this.checked = !!this.checked;
   }
 
   toPublic(): Product {
@@ -18,6 +22,8 @@ export class ProductRecord {
       name: this.name,
       checked: this.checked,
       listId: this.listId,
+      amount: this.amount,
+      unit: this.unit,
     };
   }
 }

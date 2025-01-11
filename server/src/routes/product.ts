@@ -3,6 +3,6 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/set-checked', setCheckedHandler);
+router.post('/set-checked', setCheckedHandler);
 
 export const productRouter = router;

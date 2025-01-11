@@ -20,3 +20,7 @@
     </ard-icon-button>
   </div>
 </div>
+
+@if (listData.value()) {
+<app-product-list [products]="listData.value()!.products" />
+}

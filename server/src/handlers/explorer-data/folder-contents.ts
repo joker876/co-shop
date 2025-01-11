@@ -15,7 +15,8 @@ export const folderContentsHandler: RequestHandler<
   const { parentFolderId } = req.query;
 
   if (
-    parentFolderId != '' &&
+    parentFolderId !== undefined &&
+    parentFolderId !== '' &&
     new Assert(res, req.query, 'parentFolderId').isStringNumber().isInteger().isMoreThan(0).isFailed
   ) {
     return;

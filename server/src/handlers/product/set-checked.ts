@@ -5,7 +5,7 @@ import { SetCheckedRequest, SetCheckedResponse } from './../../../../shared/inte
 
 export const setCheckedHandler: RequestHandler<null, SetCheckedResponse, SetCheckedRequest> = async (req, res) => {
   if (
-    new Assert(res, req.body, 'productId').exists().isStringNumber().isInteger().isMoreThan(0).isFailed ||
+    new Assert(res, req.body, 'productId').exists().isNumber().isInteger().isMoreThan(0).isFailed ||
     new Assert(res, req.body, 'checked').exists().isBoolean().isFailed
   ) {
     return;

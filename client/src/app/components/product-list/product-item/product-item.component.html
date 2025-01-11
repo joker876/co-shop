@@ -1,0 +1,17 @@
+<button
+  class="product-item"
+  (click)="listService.toggleProductChecked(product().id)"
+  [class.checked]="product().checked"
+>
+  <div class="left-container">
+    <div class="product-name">
+      {{ product().name }}
+    </div>
+    <div class="product-amount">
+      {{ product().amount | productAmount: product().unit }}
+    </div>
+  </div>
+  <div class="right-container">
+    <app-product-checkbox [checked]="product().checked" />
+  </div>
+</button>

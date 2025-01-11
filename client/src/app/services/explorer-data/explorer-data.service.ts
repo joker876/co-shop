@@ -16,12 +16,12 @@ export class ExplorerDataService {
   private readonly currentFolderId = signal<string | null>(null);
 
   private readonly _folderContents = rxResource({
-    request: () => ({ folderId: this.currentFolderId() ?? '' }),
+    request: () => ({ folderId: this.currentFolderId() }),
     loader: ({ request }) => {
       return this.http
-        .get<FolderContentsResponse>('/explorer-data/folder-contents', {
-          params: { parentFolderId: request.folderId ?? '' },
-        })
+        .get<FolderContentsResponse>('/explorer-data/folder-contents', request.folderId ? {
+          params: { parentFolderId: request.folderId },
+        } : {})
         .pipe(getSuccessRes());
     },
   });

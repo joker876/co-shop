@@ -1,5 +1,11 @@
 @use '../../../variables' as *;
 
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .name-container {
   position: sticky;
   left: 0;
@@ -37,15 +43,12 @@
     }
   }
 }
-
 .additional-info-line {
   color: $text3;
 }
-
 .btn-container {
   aspect-ratio: 1;
 }
-
 .more-actions-btn {
   font-size: 1.25rem;
 }

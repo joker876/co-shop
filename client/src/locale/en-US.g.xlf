@@ -6,14 +6,14 @@
         <source>No folders found</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/explorer-list/explorer-list.component.html</context>
-          <context context-type="linenumber">7,11</context>
+          <context context-type="linenumber">7,10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.explorer.no-lists" datatype="html">
         <source>No lists found</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/explorer-list/explorer-list.component.html</context>
-          <context context-type="linenumber">18,22</context>
+          <context context-type="linenumber">17,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.welcome" datatype="html">
@@ -202,18 +202,172 @@ It doesn&apos;t have to be your real name. It can really be whatever you would l
           <context context-type="linenumber">3,6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="product.unit.singular.pc" datatype="html">
+        <source>pc.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.box" datatype="html">
+        <source>box</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.kg" datatype="html">
+        <source>kg</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.dag" datatype="html">
+        <source>dag</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.g" datatype="html">
+        <source>g</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.lb" datatype="html">
+        <source>lb</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.oz" datatype="html">
+        <source>oz</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.l" datatype="html">
+        <source>l</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.ml" datatype="html">
+        <source>ml</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.floz" datatype="html">
+        <source>fl oz</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.singular.gal" datatype="html">
+        <source>gal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.pc" datatype="html">
+        <source>pcs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.box" datatype="html">
+        <source>boxes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.kg" datatype="html">
+        <source>kg</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.dag" datatype="html">
+        <source>dag</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.g" datatype="html">
+        <source>g</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.lb" datatype="html">
+        <source>lbs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.oz" datatype="html">
+        <source>oz</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.l" datatype="html">
+        <source>l</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.ml" datatype="html">
+        <source>ml</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.floz" datatype="html">
+        <source>fl oz</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.unit.plural.gal" datatype="html">
+        <source>gal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/product-amount/product-amount.pipe.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="smart-date-format.short" datatype="html">
         <source>MMM d</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipes/smart-date/smart-date.pipe.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="smart-date-format.full" datatype="html">
         <source>MMM d, yyyy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipes/smart-date/smart-date.pipe.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
     </body>
