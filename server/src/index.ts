@@ -1,3 +1,4 @@
+import { resolveMultipliedNumber } from '@utils/resolve-multiplied-number';
 import ansis from 'ansis';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -41,7 +42,7 @@ app.use(
     store: sessionStore,
     saveUninitialized: false,
     cookie: {
-      maxAge: Number(process.env.SESSION_LENGTH) || 24 * 60 * 60 * 1000, // 1 day
+      maxAge: resolveMultipliedNumber(process.env.SESSION_LENGTH) || 24 * 60 * 60 * 1000, // 1 day
     },
   })
 );
