@@ -1,4 +1,4 @@
-import { Component, effect, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Product } from '@shared/interfaces/product/product';
 import { ProductItemComponent } from './product-item/product-item.component';
 
@@ -11,7 +11,5 @@ import { ProductItemComponent } from './product-item/product-item.component';
 export class ProductListComponent {
   readonly products = input.required<Product[]>();
 
-  dgfg = effect(() => {
-     console.table(this.products())
-   })
+  readonly compact = input<boolean>(false);
 }

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, ViewEncapsulation } from '@angular/core';
+import { Component, effect, inject, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {
   ArdiumButtonModule,
   ArdiumCardModule,
@@ -9,27 +9,36 @@ import {
   ArdiumSimpleInputModule,
 } from '@ardium-ui/ui';
 import { AuthService } from '@services/auth';
+import { UserService } from '@services/user/user.service';
 import { AuthLoginRequest } from '@shared/interfaces/auth/login';
 import { customValidators, disableAllControls, restoreDisabledStates } from '@utils/form-utils';
 
 @Component({
-    selector: 'app-login',
-    imports: [
-        ArdiumCardModule,
-        ArdiumSimpleInputModule,
-        ArdiumPasswordInputModule,
-        ArdiumButtonModule,
-        CommonModule,
-        ReactiveFormsModule,
-    ],
-    templateUrl: './login.page.html',
-    styleUrl: './login.page.scss',
-    encapsulation: ViewEncapsulation.None
+  selector: 'app-login',
+  imports: [
+    ArdiumCardModule,
+    ArdiumSimpleInputModule,
+    ArdiumPasswordInputModule,
+    ArdiumButtonModule,
+    CommonModule,
+    ReactiveFormsModule,
+  ],
+  templateUrl: './login.page.html',
+  styleUrl: './login.page.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class LoginPage {
   readonly authService = inject(AuthService);
+  readonly userService = inject(UserService);
   private readonly router = inject(Router);
-  private readonly route = inject(ActivatedRoute);
+
+  constructor() {
+    effect(() => {
+      if (this.userService.isAuthenticated()) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
 
   readonly form = new FormGroup({
     email: new FormControl<string>('', [Validators.required, customValidators.email]),
@@ -49,7 +58,7 @@ export class LoginPage {
       return;
     }
     if (!hasNameSet) {
-      this.router.navigate(['register', 'set-name']); 
+      this.router.navigate(['register', 'set-name']);
       return;
     }
     this.router.navigate(['']);

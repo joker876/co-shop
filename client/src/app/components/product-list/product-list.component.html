@@ -1,5 +1,5 @@
-<div class="product-list">
+<div class="product-list" [class.compact]="compact()">
   @for (product of products(); track product.id) {
-    <app-product-item [product]="product" />
+    <app-product-item [product]="product" [style.--_item-index]="$index" />
   }
 </div>
