@@ -1,9 +1,13 @@
-
-
-.product-list {
-  --item-height: 3.5rem;
+.product-list-container {
   margin: 0 -1rem;
+  --item-height: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.product-list {
   position: relative;
+  height: calc(var(--item-height) * var(--_items-amount));
 
   > app-product-item {
     display: block;
@@ -12,7 +16,9 @@
     left: 0;
     right: 0;
     top: calc(var(--item-height) * var(--_item-index));
-    transition: top 0.3s ease-out, height 0.2s ease-in-out;
+    transition:
+      top 0.3s ease-out,
+      height 0.2s ease-in-out;
     opacity: 0;
     animation: appear 0.2s ease-out calc(50ms * var(--_item-index)) forwards;
   }
@@ -27,7 +33,7 @@
     transform: translateY(-20%) scale(0.9);
     opacity: 0;
   }
-  80%  {
+  80% {
     opacity: 1;
   }
   100% {
