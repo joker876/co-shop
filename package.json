@@ -10,7 +10,7 @@
     "front": "cd client && ng serve",
     "prettier": "prettier --write .",
     "generate-ip": "node scripts/ip-generator/index.js",
-    "install-all": "npm install && cd client && npm install && cd ../server && npm install"
+    "install-all": "pnpm install && cd client && pnpm install && cd ../server && pnpm install"
   },
   "license": "MIT",
   "devDependencies": {
