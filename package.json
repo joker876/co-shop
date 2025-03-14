@@ -4,7 +4,7 @@
   "description": "",
   "author": "",
   "scripts": {
-    "build": "cd client && npm install && npm run build && cd ../server && npm install",
+    "build": "cd client && npm run build",
     "watch": "cd client && npm run watch",
     "server": "cd server && npm run dev",
     "front": "cd client && ng serve",
