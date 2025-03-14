@@ -12,3 +12,5 @@ Do not worry, both files where the IP is plugged into are git-ignored.
 Lastly, in two terminals, run both `npm run front` and `npm run server`. They start both the frontend and the backend in watch mode, so they automatically restart on changes.
 
 ## Other scripts
+- `npm run prettier` - formats the entire codebase with prettier.
+- `npm run build` - builds the frontend app.
